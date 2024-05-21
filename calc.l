@@ -10,11 +10,11 @@ int yyerror(const char *s);
 
 %%
 
-[ \t\r\n] { /* ignora */ }
+[ \t\r\n] {}
 
-"//".*\n { /*  ignora */ }
+"//".*\n {}
 
-"print" {return TOK_PRINT; }
+"print" {return TOK_PRINT;}
 
 "+" {return '+';}
 "-" {return '-';}

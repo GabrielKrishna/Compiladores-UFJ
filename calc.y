@@ -16,7 +16,7 @@ int yylex(void);
 
 program : globals ;
 
-globals : globals global{
+globals : globals global {
 }
 
 globals : global {
@@ -34,16 +34,16 @@ expr : expr '+' term {
 expr : expr '-' term {
 }
 
-expr : term{
+expr : term {
 }
 
-term : term '*' factor{
+term : term '*' factor {
 }
 
-term : term '/' factor{
+term : term '/' factor {
 }
 
-term : factor{
+term : factor {
 }
 
 factor : '(' expr ')' {
@@ -61,7 +61,7 @@ factor : TOK_FLOAT {
 factor : unary {
 }
 
-unary : {
+unary : '-' factor {
 }
 
 %%

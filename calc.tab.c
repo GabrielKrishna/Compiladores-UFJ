@@ -121,7 +121,8 @@ enum yysymbol_kind_t
   YYSYMBOL_global = 18,                    /* global  */
   YYSYMBOL_expr = 19,                      /* expr  */
   YYSYMBOL_term = 20,                      /* term  */
-  YYSYMBOL_factor = 21                     /* factor  */
+  YYSYMBOL_factor = 21,                    /* factor  */
+  YYSYMBOL_unary = 22                      /* unary  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -449,16 +450,16 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  8
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   23
+#define YYLAST   25
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  15
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  7
+#define YYNNTS  8
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  16
+#define YYNRULES  18
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  29
+#define YYNSTATES  32
 
 /* YYMAXUTOK -- Last valid token kind.  */
 #define YYMAXUTOK   261
@@ -509,7 +510,7 @@ static const yytype_int8 yytranslate[] =
 static const yytype_int8 yyrline[] =
 {
        0,    17,    17,    19,    22,    25,    28,    31,    34,    37,
-      40,    43,    46,    49,    52,    55,    58
+      40,    43,    46,    49,    52,    55,    58,    61,    64
 };
 #endif
 
@@ -528,7 +529,7 @@ static const char *const yytname[] =
   "\"end of file\"", "error", "\"invalid token\"", "TOK_IDENT",
   "TOK_PRINT", "TOK_FLOAT", "TOK_INT", "'='", "';'", "'+'", "'-'", "'*'",
   "'/'", "'('", "')'", "$accept", "program", "globals", "global", "expr",
-  "term", "factor", YY_NULLPTR
+  "term", "factor", "unary", YY_NULLPTR
 };
 
 static const char *
@@ -538,7 +539,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-7)
+#define YYPACT_NINF (-14)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -552,9 +553,10 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-       8,    -6,    12,    18,     8,    -7,    -3,    11,    -7,    -7,
-      -7,    -7,    -7,    -3,    -2,     2,    -7,    -7,    -5,    -7,
-      -3,    -3,    -3,    -3,    -7,     2,     2,    -7,    -7
+      14,    -5,     4,     9,    14,   -14,    -2,    13,   -14,   -14,
+     -14,   -14,   -14,    -2,    -2,     6,     8,   -14,   -14,   -14,
+     -14,    -4,   -14,    -2,    -2,    -2,    -2,   -14,     8,     8,
+     -14,   -14
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -563,20 +565,21 @@ static const yytype_int8 yypact[] =
 static const yytype_int8 yydefact[] =
 {
        0,     0,     0,     0,     2,     4,     0,     0,     1,     3,
-      14,    16,    15,     0,     0,     9,    12,     6,     0,     5,
-       0,     0,     0,     0,    13,     7,     8,    10,    11
+      14,    16,    15,     0,     0,     0,     9,    12,    17,     6,
+      18,     0,     5,     0,     0,     0,     0,    13,     7,     8,
+      10,    11
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-      -7,    -7,    -7,    16,    10,    -4,    -1
+     -14,   -14,   -14,    20,    11,    -1,   -13,   -14
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,     3,     4,     5,    14,    15,    16
+       0,     3,     4,     5,    15,    16,    17,    18
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -584,16 +587,16 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-      10,     6,    11,    12,    20,    21,    19,    20,    21,    24,
-      13,     1,     2,    22,    23,     7,    25,    26,     8,    17,
-       9,    27,    28,    18
+      20,    10,     6,    11,    12,    23,    24,     7,    13,     8,
+      27,    14,    30,    31,    22,    23,    24,     1,     2,    25,
+      26,    19,    28,    29,     9,    21
 };
 
 static const yytype_int8 yycheck[] =
 {
-       3,     7,     5,     6,     9,    10,     8,     9,    10,    14,
-      13,     3,     4,    11,    12,     3,    20,    21,     0,     8,
-       4,    22,    23,    13
+      13,     3,     7,     5,     6,     9,    10,     3,    10,     0,
+      14,    13,    25,    26,     8,     9,    10,     3,     4,    11,
+      12,     8,    23,    24,     4,    14
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
@@ -601,22 +604,23 @@ static const yytype_int8 yycheck[] =
 static const yytype_int8 yystos[] =
 {
        0,     3,     4,    16,    17,    18,     7,     3,     0,    18,
-       3,     5,     6,    13,    19,    20,    21,     8,    19,     8,
-       9,    10,    11,    12,    14,    20,    20,    21,    21
+       3,     5,     6,    10,    13,    19,    20,    21,    22,     8,
+      21,    19,     8,     9,    10,    11,    12,    14,    20,    20,
+      21,    21
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
        0,    15,    16,    17,    17,    18,    18,    19,    19,    19,
-      20,    20,    20,    21,    21,    21,    21
+      20,    20,    20,    21,    21,    21,    21,    21,    22
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
        0,     2,     1,     2,     1,     4,     3,     3,     3,     1,
-       3,     3,     1,     3,     1,     1,     1
+       3,     3,     1,     3,     1,     1,     1,     1,     2
 };
 
 
@@ -1351,104 +1355,118 @@ yyreduce:
     {
   case 3: /* globals: globals global  */
 #line 19 "calc.y"
-                        {
+                         {
 }
-#line 1357 "calc.tab.c"
+#line 1361 "calc.tab.c"
     break;
 
   case 4: /* globals: global  */
 #line 22 "calc.y"
                  {
 }
-#line 1364 "calc.tab.c"
+#line 1368 "calc.tab.c"
     break;
 
   case 5: /* global: TOK_IDENT '=' expr ';'  */
 #line 25 "calc.y"
                                 {
 }
-#line 1371 "calc.tab.c"
+#line 1375 "calc.tab.c"
     break;
 
   case 6: /* global: TOK_PRINT TOK_IDENT ';'  */
 #line 28 "calc.y"
                                  {
 }
-#line 1378 "calc.tab.c"
+#line 1382 "calc.tab.c"
     break;
 
   case 7: /* expr: expr '+' term  */
 #line 31 "calc.y"
                      {
 }
-#line 1385 "calc.tab.c"
+#line 1389 "calc.tab.c"
     break;
 
   case 8: /* expr: expr '-' term  */
 #line 34 "calc.y"
                      {
 }
-#line 1392 "calc.tab.c"
+#line 1396 "calc.tab.c"
     break;
 
   case 9: /* expr: term  */
 #line 37 "calc.y"
-           {
+            {
 }
-#line 1399 "calc.tab.c"
+#line 1403 "calc.tab.c"
     break;
 
   case 10: /* term: term '*' factor  */
 #line 40 "calc.y"
-                      {
+                       {
 }
-#line 1406 "calc.tab.c"
+#line 1410 "calc.tab.c"
     break;
 
   case 11: /* term: term '/' factor  */
 #line 43 "calc.y"
-                      {
+                       {
 }
-#line 1413 "calc.tab.c"
+#line 1417 "calc.tab.c"
     break;
 
   case 12: /* term: factor  */
 #line 46 "calc.y"
-             {
+              {
 }
-#line 1420 "calc.tab.c"
+#line 1424 "calc.tab.c"
     break;
 
   case 13: /* factor: '(' expr ')'  */
 #line 49 "calc.y"
                       {
 }
-#line 1427 "calc.tab.c"
+#line 1431 "calc.tab.c"
     break;
 
   case 14: /* factor: TOK_IDENT  */
 #line 52 "calc.y"
                    {
 }
-#line 1434 "calc.tab.c"
+#line 1438 "calc.tab.c"
     break;
 
   case 15: /* factor: TOK_INT  */
 #line 55 "calc.y"
                  {
 }
-#line 1441 "calc.tab.c"
+#line 1445 "calc.tab.c"
     break;
 
   case 16: /* factor: TOK_FLOAT  */
 #line 58 "calc.y"
                    {
 }
-#line 1448 "calc.tab.c"
+#line 1452 "calc.tab.c"
+    break;
+
+  case 17: /* factor: unary  */
+#line 61 "calc.y"
+               {
+}
+#line 1459 "calc.tab.c"
+    break;
+
+  case 18: /* unary: '-' factor  */
+#line 64 "calc.y"
+                   {
+}
+#line 1466 "calc.tab.c"
     break;
 
 
-#line 1452 "calc.tab.c"
+#line 1470 "calc.tab.c"
 
       default: break;
     }
@@ -1672,6 +1690,6 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 61 "calc.y"
+#line 67 "calc.y"
 
 
