@@ -14,7 +14,7 @@ int yylex(void);
 
 %%
 
-program : globals ;
+program : globals;
 
 globals : globals global {
 }
@@ -29,7 +29,7 @@ global : TOK_PRINT TOK_IDENT ';' {
 }
 
 expr : expr '+' term {
-} 
+}
 
 expr : expr '-' term {
 }
