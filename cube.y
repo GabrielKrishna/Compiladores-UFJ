@@ -7,8 +7,27 @@ int yylex(void);
 
 %token TOK_IDENT
 %token TOK_PRINT
-%token TOK_FLOAT
-%token TOK_INT
+%token TOK_SCAN
+%token TOK_IF
+%token TOK_ELSE
+%token TOK_WHILE
+%token TOK_FOR
+%token TOK_BREAK
+%token TYPE_BOOL
+%token TOK_TRUE
+%token TOK_FALSE
+%token TYPE_INT
+%token TYPE_FLOAT
+%token TYPE_CHAR
+%token TYPE_STRING
+%token TOK_AND
+%token TOK_OR
+%token TOK_NOT
+%token TOK_LE
+%token TOK_GE
+%token TOK_EQ
+%token TOK_NE
+
 
 %start program
 
@@ -52,10 +71,10 @@ factor : '(' expr ')' {
 factor : TOK_IDENT {
 }
 
-factor : TOK_INT {
+factor : TYPE_INT {
 }
 
-factor : TOK_FLOAT {
+factor : TYPE_FLOAT {
 }
 
 factor : unary {

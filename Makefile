@@ -1,4 +1,4 @@
 all:
-	flex calc.l
-	bison -d calc.y
-	${CC} *.c -o calc
+	flex cube.l
+	bison -d cube.y
+	${CC} *.c -o cube
