@@ -112,35 +112,59 @@ enum yysymbol_kind_t
   YYSYMBOL_TOK_FOR = 9,                    /* TOK_FOR  */
   YYSYMBOL_TOK_BREAK = 10,                 /* TOK_BREAK  */
   YYSYMBOL_TYPE_BOOL = 11,                 /* TYPE_BOOL  */
-  YYSYMBOL_TOK_TRUE = 12,                  /* TOK_TRUE  */
-  YYSYMBOL_TOK_FALSE = 13,                 /* TOK_FALSE  */
-  YYSYMBOL_TYPE_INT = 14,                  /* TYPE_INT  */
-  YYSYMBOL_TYPE_FLOAT = 15,                /* TYPE_FLOAT  */
-  YYSYMBOL_TYPE_CHAR = 16,                 /* TYPE_CHAR  */
-  YYSYMBOL_TYPE_STRING = 17,               /* TYPE_STRING  */
-  YYSYMBOL_TOK_AND = 18,                   /* TOK_AND  */
-  YYSYMBOL_TOK_OR = 19,                    /* TOK_OR  */
-  YYSYMBOL_TOK_NOT = 20,                   /* TOK_NOT  */
-  YYSYMBOL_TOK_LE = 21,                    /* TOK_LE  */
-  YYSYMBOL_TOK_GE = 22,                    /* TOK_GE  */
-  YYSYMBOL_TOK_EQ = 23,                    /* TOK_EQ  */
-  YYSYMBOL_TOK_NE = 24,                    /* TOK_NE  */
-  YYSYMBOL_25_ = 25,                       /* '='  */
-  YYSYMBOL_26_ = 26,                       /* ';'  */
-  YYSYMBOL_27_ = 27,                       /* '+'  */
-  YYSYMBOL_28_ = 28,                       /* '-'  */
-  YYSYMBOL_29_ = 29,                       /* '*'  */
-  YYSYMBOL_30_ = 30,                       /* '/'  */
-  YYSYMBOL_31_ = 31,                       /* '('  */
-  YYSYMBOL_32_ = 32,                       /* ')'  */
-  YYSYMBOL_YYACCEPT = 33,                  /* $accept  */
-  YYSYMBOL_program = 34,                   /* program  */
-  YYSYMBOL_globals = 35,                   /* globals  */
-  YYSYMBOL_global = 36,                    /* global  */
-  YYSYMBOL_expr = 37,                      /* expr  */
-  YYSYMBOL_term = 38,                      /* term  */
-  YYSYMBOL_factor = 39,                    /* factor  */
-  YYSYMBOL_unary = 40                      /* unary  */
+  YYSYMBOL_TYPE_INT = 12,                  /* TYPE_INT  */
+  YYSYMBOL_TYPE_FLOAT = 13,                /* TYPE_FLOAT  */
+  YYSYMBOL_TYPE_CHAR = 14,                 /* TYPE_CHAR  */
+  YYSYMBOL_TYPE_STRING = 15,               /* TYPE_STRING  */
+  YYSYMBOL_TOK_AND = 16,                   /* TOK_AND  */
+  YYSYMBOL_TOK_OR = 17,                    /* TOK_OR  */
+  YYSYMBOL_TOK_LESSEQUAL = 18,             /* TOK_LESSEQUAL  */
+  YYSYMBOL_TOK_GREATEREQUAL = 19,          /* TOK_GREATEREQUAL  */
+  YYSYMBOL_TOK_EQUAL = 20,                 /* TOK_EQUAL  */
+  YYSYMBOL_TOK_DIFF = 21,                  /* TOK_DIFF  */
+  YYSYMBOL_TOK_TRUE = 22,                  /* TOK_TRUE  */
+  YYSYMBOL_TOK_FALSE = 23,                 /* TOK_FALSE  */
+  YYSYMBOL_TOK_INT = 24,                   /* TOK_INT  */
+  YYSYMBOL_TOK_FLOAT = 25,                 /* TOK_FLOAT  */
+  YYSYMBOL_TOK_CHAR = 26,                  /* TOK_CHAR  */
+  YYSYMBOL_TOK_STRING = 27,                /* TOK_STRING  */
+  YYSYMBOL_28_ = 28,                       /* '='  */
+  YYSYMBOL_29_ = 29,                       /* ';'  */
+  YYSYMBOL_30_ = 30,                       /* '('  */
+  YYSYMBOL_31_ = 31,                       /* ')'  */
+  YYSYMBOL_32_ = 32,                       /* '+'  */
+  YYSYMBOL_33_ = 33,                       /* '-'  */
+  YYSYMBOL_34_ = 34,                       /* '*'  */
+  YYSYMBOL_35_ = 35,                       /* '/'  */
+  YYSYMBOL_36_ = 36,                       /* '{'  */
+  YYSYMBOL_37_ = 37,                       /* '}'  */
+  YYSYMBOL_38_ = 38,                       /* '!'  */
+  YYSYMBOL_39_ = 39,                       /* '>'  */
+  YYSYMBOL_40_ = 40,                       /* '<'  */
+  YYSYMBOL_YYACCEPT = 41,                  /* $accept  */
+  YYSYMBOL_program = 42,                   /* program  */
+  YYSYMBOL_globals = 43,                   /* globals  */
+  YYSYMBOL_global = 44,                    /* global  */
+  YYSYMBOL_declaration = 45,               /* declaration  */
+  YYSYMBOL_atribuition = 46,               /* atribuition  */
+  YYSYMBOL_scan = 47,                      /* scan  */
+  YYSYMBOL_type = 48,                      /* type  */
+  YYSYMBOL_tok = 49,                       /* tok  */
+  YYSYMBOL_num_expression = 50,            /* num_expression  */
+  YYSYMBOL_num_term = 51,                  /* num_term  */
+  YYSYMBOL_num_factor = 52,                /* num_factor  */
+  YYSYMBOL_unary = 53,                     /* unary  */
+  YYSYMBOL_print = 54,                     /* print  */
+  YYSYMBOL_selection = 55,                 /* selection  */
+  YYSYMBOL_condition = 56,                 /* condition  */
+  YYSYMBOL_bool = 57,                      /* bool  */
+  YYSYMBOL_not = 58,                       /* not  */
+  YYSYMBOL_logic_operator = 59,            /* logic_operator  */
+  YYSYMBOL_while = 60,                     /* while  */
+  YYSYMBOL_for = 61,                       /* for  */
+  YYSYMBOL_for_init = 62,                  /* for_init  */
+  YYSYMBOL_for_iter = 63,                  /* for_iter  */
+  YYSYMBOL_break = 64                      /* break  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -257,7 +281,7 @@ typedef int yytype_uint16;
 
 
 /* Stored state numbers (used for stacks). */
-typedef yytype_int8 yy_state_t;
+typedef yytype_uint8 yy_state_t;
 
 /* State numbers in computations.  */
 typedef int yy_state_fast_t;
@@ -466,21 +490,21 @@ union yyalloc
 #endif /* !YYCOPY_NEEDED */
 
 /* YYFINAL -- State number of the termination state.  */
-#define YYFINAL  8
+#define YYFINAL  29
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   28
+#define YYLAST   218
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  33
+#define YYNTOKENS  41
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  8
+#define YYNNTS  24
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  18
+#define YYNRULES  62
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  32
+#define YYNSTATES  132
 
 /* YYMAXUTOK -- Last valid token kind.  */
-#define YYMAXUTOK   279
+#define YYMAXUTOK   282
 
 
 /* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
@@ -497,16 +521,16 @@ static const yytype_int8 yytranslate[] =
        0,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-      31,    32,    29,    27,     2,    28,     2,    30,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,     2,    26,
-       2,    25,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,    38,     2,     2,     2,     2,     2,     2,
+      30,    31,    34,    32,     2,    33,     2,    35,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,    29,
+      40,    28,    39,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,    36,     2,    37,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -521,15 +545,21 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
        5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
-      15,    16,    17,    18,    19,    20,    21,    22,    23,    24
+      15,    16,    17,    18,    19,    20,    21,    22,    23,    24,
+      25,    26,    27
 };
 
 #if YYDEBUG
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
-static const yytype_int8 yyrline[] =
+static const yytype_uint8 yyrline[] =
 {
-       0,    36,    36,    38,    41,    44,    47,    50,    53,    56,
-      59,    62,    65,    68,    71,    74,    77,    80,    83
+       0,    38,    38,    40,    43,    46,    46,    46,    46,    46,
+      46,    46,    49,    52,    55,    58,    61,    64,    67,    70,
+      73,    76,    79,    82,    85,    88,    91,    94,    97,   100,
+     103,   106,   109,   112,   115,   118,   121,   124,   127,   130,
+     133,   136,   139,   142,   145,   148,   151,   154,   157,   160,
+     163,   166,   169,   172,   175,   178,   181,   184,   187,   190,
+     191,   194,   197
 };
 #endif
 
@@ -547,11 +577,15 @@ static const char *const yytname[] =
 {
   "\"end of file\"", "error", "\"invalid token\"", "TOK_IDENT",
   "TOK_PRINT", "TOK_SCAN", "TOK_IF", "TOK_ELSE", "TOK_WHILE", "TOK_FOR",
-  "TOK_BREAK", "TYPE_BOOL", "TOK_TRUE", "TOK_FALSE", "TYPE_INT",
-  "TYPE_FLOAT", "TYPE_CHAR", "TYPE_STRING", "TOK_AND", "TOK_OR", "TOK_NOT",
-  "TOK_LE", "TOK_GE", "TOK_EQ", "TOK_NE", "'='", "';'", "'+'", "'-'",
-  "'*'", "'/'", "'('", "')'", "$accept", "program", "globals", "global",
-  "expr", "term", "factor", "unary", YY_NULLPTR
+  "TOK_BREAK", "TYPE_BOOL", "TYPE_INT", "TYPE_FLOAT", "TYPE_CHAR",
+  "TYPE_STRING", "TOK_AND", "TOK_OR", "TOK_LESSEQUAL", "TOK_GREATEREQUAL",
+  "TOK_EQUAL", "TOK_DIFF", "TOK_TRUE", "TOK_FALSE", "TOK_INT", "TOK_FLOAT",
+  "TOK_CHAR", "TOK_STRING", "'='", "';'", "'('", "')'", "'+'", "'-'",
+  "'*'", "'/'", "'{'", "'}'", "'!'", "'>'", "'<'", "$accept", "program",
+  "globals", "global", "declaration", "atribuition", "scan", "type", "tok",
+  "num_expression", "num_term", "num_factor", "unary", "print",
+  "selection", "condition", "bool", "not", "logic_operator", "while",
+  "for", "for_init", "for_iter", "break", YY_NULLPTR
 };
 
 static const char *
@@ -561,7 +595,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-26)
+#define YYPACT_NINF (-38)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -573,12 +607,22 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 
 /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
    STATE-NUM.  */
-static const yytype_int8 yypact[] =
+static const yytype_int16 yypact[] =
 {
-       5,   -15,    16,    20,     5,   -26,    -3,    -5,   -26,   -26,
-     -26,   -26,   -26,    -3,    -3,   -22,   -14,   -26,   -26,   -26,
-     -26,   -25,   -26,    -3,    -3,    -3,    -3,   -26,   -14,   -14,
-     -26,   -26
+     193,    -3,     9,    12,    14,    22,   -22,   -38,   -38,   -38,
+     -38,   -38,    59,   193,   -38,   -38,   -38,     6,   -38,   -38,
+     -38,   -38,   -38,    23,    48,    65,    94,     7,   -38,   -38,
+     -38,    -5,   -38,    36,   -38,   -38,   -38,   -38,   -38,   -38,
+      65,     5,    37,   -38,    40,   -21,    20,   173,   -38,   -38,
+     -38,   -38,    45,    46,    50,    49,   -38,   -38,    53,    48,
+     -38,   203,   -17,    41,     5,   -38,    65,   -38,     5,     5,
+       5,     5,   -38,   -38,   -38,   -38,   -38,   -38,     5,    54,
+      55,    61,    56,    65,    64,    70,   -38,    65,    65,   -17,
+     -38,    81,    20,    20,   -38,   -38,   -38,   -38,   193,    91,
+     193,    92,   -38,    93,    95,    97,   -38,    96,    99,   131,
+     122,   -38,   -38,   -38,   123,    98,   -38,   -38,   100,     0,
+     113,   115,   193,   -38,   193,   193,   144,   161,   174,   -38,
+     -38,   -38
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -586,63 +630,135 @@ static const yytype_int8 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       0,     0,     0,     0,     2,     4,     0,     0,     1,     3,
-      14,    15,    16,     0,     0,     0,     9,    12,    17,     6,
-      18,     0,     5,     0,     0,     0,     0,    13,     7,     8,
-      10,    11
+       0,     0,     0,     0,     0,     0,     0,    17,    18,    19,
+      20,    21,     0,     2,     4,     5,     6,     0,     9,    10,
+       7,     8,    11,     0,     0,     0,     0,     0,    62,     1,
+       3,     0,    32,     0,    46,    47,    33,    34,    24,    22,
+       0,     0,     0,    15,     0,    44,    27,    30,    35,    23,
+      45,    48,     0,     0,    33,     0,    59,    60,     0,     0,
+      13,     0,    44,     0,     0,    36,     0,    14,     0,     0,
+       0,     0,    55,    53,    51,    50,    52,    54,     0,     0,
+       0,     0,     0,     0,     0,     0,    31,     0,     0,     0,
+      30,     0,    25,    26,    28,    29,    41,    37,     0,     0,
+       0,     0,    12,     0,     0,     0,    49,     0,     0,     0,
+       0,    16,    42,    43,    38,     0,    57,    61,     0,     0,
+       0,     0,     0,    40,     0,     0,     0,     0,     0,    39,
+      56,    58
 };
 
 /* YYPGOTO[NTERM-NUM].  */
-static const yytype_int8 yypgoto[] =
+static const yytype_int16 yypgoto[] =
 {
-     -26,   -26,   -26,    18,     9,    -6,   -12,   -26
+     -38,   -38,    38,   -13,   134,   -26,   -38,   105,   -19,   -27,
+      -6,   -37,   -38,   -38,    60,   -23,   -38,   -38,   -38,   -38,
+     -38,   -38,   -38,   -38
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,     3,     4,     5,    15,    16,    17,    18
+       0,    12,    13,    14,    15,    16,    43,    17,    44,    45,
+      46,    47,    48,    18,    19,    49,    50,    51,    78,    20,
+      21,    58,   118,    22
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
    positive, shift that token.  If negative, reduce the rule whose
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
-static const yytype_int8 yytable[] =
+static const yytype_uint8 yytable[] =
 {
-      10,    20,    23,    24,    22,    23,    24,    27,     1,     2,
-       6,    11,    12,    30,    31,    25,    26,    28,    29,     7,
-       8,    19,     9,    21,     0,    13,     0,     0,    14
+      30,    57,    53,    55,    65,    52,     3,    28,    32,    31,
+       1,    68,    69,    62,    86,    68,    69,    63,     7,     8,
+       9,    10,    11,    59,    60,    23,    32,    90,    33,    36,
+      37,    90,    90,    94,    95,    64,   122,    89,    41,    24,
+      84,    96,    25,    91,    26,    34,    35,    36,    37,    38,
+      39,    32,    27,    40,    70,    71,    41,    87,    88,    29,
+     101,    42,    92,    93,   104,   105,    61,    66,    32,    67,
+      34,    35,    36,    37,    38,    39,    79,    80,    40,    81,
+      82,    41,    83,    97,   117,    99,    42,    34,    35,    36,
+      37,    98,   100,   102,    30,    40,    30,    32,    41,     1,
+       2,   103,     3,    42,     4,     5,     6,     7,     8,     9,
+      10,    11,   106,    30,    30,    30,    34,    35,    54,    37,
+     108,   110,   111,   115,    40,     1,   112,    41,   113,   120,
+     119,   121,    42,   114,     1,     2,   107,     3,   109,     4,
+       5,     6,     7,     8,     9,    10,    11,     1,     2,   124,
+       3,   125,     4,     5,     6,     7,     8,     9,    10,    11,
+     126,    56,   127,   128,     1,     2,    85,     3,   116,     4,
+       5,     6,     7,     8,     9,    10,    11,     1,     2,   123,
+       3,   129,     4,     5,     6,     7,     8,     9,    10,    11,
+       0,    72,    73,    74,    75,     0,     1,     2,   130,     3,
+       0,     4,     5,     6,     7,     8,     9,    10,    11,     0,
+       0,   131,    76,    77,     7,     8,     9,    10,    11
 };
 
-static const yytype_int8 yycheck[] =
+static const yytype_int16 yycheck[] =
 {
-       3,    13,    27,    28,    26,    27,    28,    32,     3,     4,
-      25,    14,    15,    25,    26,    29,    30,    23,    24,     3,
-       0,    26,     4,    14,    -1,    28,    -1,    -1,    31
+      13,    27,    25,    26,    41,    24,     6,    29,     3,     3,
+       3,    32,    33,    40,    31,    32,    33,    40,    11,    12,
+      13,    14,    15,    28,    29,    28,     3,    64,     5,    24,
+      25,    68,    69,    70,    71,    30,    36,    64,    33,    30,
+      59,    78,    30,    66,    30,    22,    23,    24,    25,    26,
+      27,     3,    30,    30,    34,    35,    33,    16,    17,     0,
+      83,    38,    68,    69,    87,    88,    30,    30,     3,    29,
+      22,    23,    24,    25,    26,    27,    31,    31,    30,    29,
+      31,    33,    29,    29,   110,    24,    38,    22,    23,    24,
+      25,    36,    36,    29,   107,    30,   109,     3,    33,     3,
+       4,    31,     6,    38,     8,     9,    10,    11,    12,    13,
+      14,    15,    31,   126,   127,   128,    22,    23,    24,    25,
+      29,    29,    29,    24,    30,     3,    31,    33,    31,    31,
+       7,    31,    38,    37,     3,     4,    98,     6,   100,     8,
+       9,    10,    11,    12,    13,    14,    15,     3,     4,    36,
+       6,    36,     8,     9,    10,    11,    12,    13,    14,    15,
+     122,    27,   124,   125,     3,     4,    61,     6,    37,     8,
+       9,    10,    11,    12,    13,    14,    15,     3,     4,   119,
+       6,    37,     8,     9,    10,    11,    12,    13,    14,    15,
+      -1,    18,    19,    20,    21,    -1,     3,     4,    37,     6,
+      -1,     8,     9,    10,    11,    12,    13,    14,    15,    -1,
+      -1,    37,    39,    40,    11,    12,    13,    14,    15
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,     3,     4,    34,    35,    36,    25,     3,     0,    36,
-       3,    14,    15,    28,    31,    37,    38,    39,    40,    26,
-      39,    37,    26,    27,    28,    29,    30,    32,    38,    38,
-      39,    39
+       0,     3,     4,     6,     8,     9,    10,    11,    12,    13,
+      14,    15,    42,    43,    44,    45,    46,    48,    54,    55,
+      60,    61,    64,    28,    30,    30,    30,    30,    29,     0,
+      44,     3,     3,     5,    22,    23,    24,    25,    26,    27,
+      30,    33,    38,    47,    49,    50,    51,    52,    53,    56,
+      57,    58,    49,    56,    24,    56,    45,    46,    62,    28,
+      29,    30,    50,    56,    30,    52,    30,    29,    32,    33,
+      34,    35,    18,    19,    20,    21,    39,    40,    59,    31,
+      31,    29,    31,    29,    49,    48,    31,    16,    17,    50,
+      52,    56,    51,    51,    52,    52,    52,    29,    36,    24,
+      36,    56,    29,    31,    56,    56,    31,    43,    29,    43,
+      29,    29,    31,    31,    37,    24,    37,    46,    63,     7,
+      31,    31,    36,    55,    36,    36,    43,    43,    43,    37,
+      37,    37
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    33,    34,    35,    35,    36,    36,    37,    37,    37,
-      38,    38,    38,    39,    39,    39,    39,    39,    40
+       0,    41,    42,    43,    43,    44,    44,    44,    44,    44,
+      44,    44,    45,    45,    46,    46,    47,    48,    48,    48,
+      48,    48,    49,    49,    49,    50,    50,    50,    51,    51,
+      51,    52,    52,    52,    52,    52,    53,    54,    55,    55,
+      55,    56,    56,    56,    56,    56,    57,    57,    57,    58,
+      59,    59,    59,    59,    59,    59,    60,    60,    61,    62,
+      62,    63,    64
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     1,     2,     1,     4,     3,     3,     3,     1,
-       3,     3,     1,     3,     1,     1,     1,     1,     2
+       0,     2,     1,     2,     1,     1,     1,     1,     1,     1,
+       1,     1,     5,     3,     4,     3,     5,     1,     1,     1,
+       1,     1,     1,     1,     1,     3,     3,     1,     3,     3,
+       1,     3,     1,     1,     1,     1,     2,     5,     7,    11,
+       9,     3,     5,     5,     1,     1,     1,     1,     1,     4,
+       1,     1,     1,     1,     1,     1,    11,     7,    11,     1,
+       1,     1,     2
 };
 
 
@@ -1376,119 +1492,378 @@ yyreduce:
   switch (yyn)
     {
   case 3: /* globals: globals global  */
-#line 38 "cube.y"
-                         {
+#line 40 "cube.y"
+                        {
 }
-#line 1383 "cube.tab.c"
+#line 1499 "cube.tab.c"
     break;
 
   case 4: /* globals: global  */
-#line 41 "cube.y"
-                 {
+#line 43 "cube.y"
+                {
 }
-#line 1390 "cube.tab.c"
+#line 1506 "cube.tab.c"
     break;
 
-  case 5: /* global: TOK_IDENT '=' expr ';'  */
-#line 44 "cube.y"
+  case 11: /* global: break  */
+#line 46 "cube.y"
+                                                                            {
+}
+#line 1513 "cube.tab.c"
+    break;
+
+  case 12: /* declaration: type TOK_IDENT '=' tok ';'  */
+#line 49 "cube.y"
+                                        {
+}
+#line 1520 "cube.tab.c"
+    break;
+
+  case 13: /* declaration: type TOK_IDENT ';'  */
+#line 52 "cube.y"
                                 {
 }
-#line 1397 "cube.tab.c"
+#line 1527 "cube.tab.c"
     break;
 
-  case 6: /* global: TOK_PRINT TOK_IDENT ';'  */
-#line 47 "cube.y"
-                                 {
+  case 14: /* atribuition: TOK_IDENT '=' tok ';'  */
+#line 55 "cube.y"
+                                  {
 }
-#line 1404 "cube.tab.c"
+#line 1534 "cube.tab.c"
     break;
 
-  case 7: /* expr: expr '+' term  */
-#line 50 "cube.y"
-                     {
+  case 15: /* atribuition: TOK_IDENT '=' scan  */
+#line 58 "cube.y"
+                                {
 }
-#line 1411 "cube.tab.c"
+#line 1541 "cube.tab.c"
     break;
 
-  case 8: /* expr: expr '-' term  */
-#line 53 "cube.y"
-                     {
+  case 16: /* scan: TOK_SCAN '(' type ')' ';'  */
+#line 61 "cube.y"
+                               {
 }
-#line 1418 "cube.tab.c"
+#line 1548 "cube.tab.c"
     break;
 
-  case 9: /* expr: term  */
-#line 56 "cube.y"
-            {
+  case 17: /* type: TYPE_BOOL  */
+#line 64 "cube.y"
+                {
 }
-#line 1425 "cube.tab.c"
+#line 1555 "cube.tab.c"
     break;
 
-  case 10: /* term: term '*' factor  */
-#line 59 "cube.y"
-                       {
-}
-#line 1432 "cube.tab.c"
-    break;
-
-  case 11: /* term: term '/' factor  */
-#line 62 "cube.y"
-                       {
-}
-#line 1439 "cube.tab.c"
-    break;
-
-  case 12: /* term: factor  */
-#line 65 "cube.y"
-              {
-}
-#line 1446 "cube.tab.c"
-    break;
-
-  case 13: /* factor: '(' expr ')'  */
-#line 68 "cube.y"
-                      {
-}
-#line 1453 "cube.tab.c"
-    break;
-
-  case 14: /* factor: TOK_IDENT  */
-#line 71 "cube.y"
-                   {
-}
-#line 1460 "cube.tab.c"
-    break;
-
-  case 15: /* factor: TYPE_INT  */
-#line 74 "cube.y"
-                  {
-}
-#line 1467 "cube.tab.c"
-    break;
-
-  case 16: /* factor: TYPE_FLOAT  */
-#line 77 "cube.y"
-                    {
-}
-#line 1474 "cube.tab.c"
-    break;
-
-  case 17: /* factor: unary  */
-#line 80 "cube.y"
+  case 18: /* type: TYPE_INT  */
+#line 67 "cube.y"
                {
 }
-#line 1481 "cube.tab.c"
+#line 1562 "cube.tab.c"
     break;
 
-  case 18: /* unary: '-' factor  */
-#line 83 "cube.y"
-                   {
+  case 19: /* type: TYPE_FLOAT  */
+#line 70 "cube.y"
+                 {
 }
-#line 1488 "cube.tab.c"
+#line 1569 "cube.tab.c"
+    break;
+
+  case 20: /* type: TYPE_CHAR  */
+#line 73 "cube.y"
+                {
+}
+#line 1576 "cube.tab.c"
+    break;
+
+  case 21: /* type: TYPE_STRING  */
+#line 76 "cube.y"
+                  {
+}
+#line 1583 "cube.tab.c"
+    break;
+
+  case 22: /* tok: TOK_STRING  */
+#line 79 "cube.y"
+                {
+}
+#line 1590 "cube.tab.c"
+    break;
+
+  case 23: /* tok: condition  */
+#line 82 "cube.y"
+               {
+}
+#line 1597 "cube.tab.c"
+    break;
+
+  case 24: /* tok: TOK_CHAR  */
+#line 85 "cube.y"
+              {
+}
+#line 1604 "cube.tab.c"
+    break;
+
+  case 25: /* num_expression: num_expression '+' num_term  */
+#line 88 "cube.y"
+                                            {
+}
+#line 1611 "cube.tab.c"
+    break;
+
+  case 26: /* num_expression: num_expression '-' num_term  */
+#line 91 "cube.y"
+                                            {
+}
+#line 1618 "cube.tab.c"
+    break;
+
+  case 27: /* num_expression: num_term  */
+#line 94 "cube.y"
+                         {
+}
+#line 1625 "cube.tab.c"
+    break;
+
+  case 28: /* num_term: num_term '*' num_factor  */
+#line 97 "cube.y"
+                                  {
+}
+#line 1632 "cube.tab.c"
+    break;
+
+  case 29: /* num_term: num_term '/' num_factor  */
+#line 100 "cube.y"
+                                  {
+}
+#line 1639 "cube.tab.c"
+    break;
+
+  case 30: /* num_term: num_factor  */
+#line 103 "cube.y"
+                     {
+}
+#line 1646 "cube.tab.c"
+    break;
+
+  case 31: /* num_factor: '(' num_expression ')'  */
+#line 106 "cube.y"
+                                   {
+}
+#line 1653 "cube.tab.c"
+    break;
+
+  case 32: /* num_factor: TOK_IDENT  */
+#line 109 "cube.y"
+                      {
+}
+#line 1660 "cube.tab.c"
+    break;
+
+  case 33: /* num_factor: TOK_INT  */
+#line 112 "cube.y"
+                    {
+}
+#line 1667 "cube.tab.c"
+    break;
+
+  case 34: /* num_factor: TOK_FLOAT  */
+#line 115 "cube.y"
+                      {
+}
+#line 1674 "cube.tab.c"
+    break;
+
+  case 35: /* num_factor: unary  */
+#line 118 "cube.y"
+                  {
+}
+#line 1681 "cube.tab.c"
+    break;
+
+  case 36: /* unary: '-' num_factor  */
+#line 121 "cube.y"
+                      {
+}
+#line 1688 "cube.tab.c"
+    break;
+
+  case 37: /* print: TOK_PRINT '(' tok ')' ';'  */
+#line 124 "cube.y"
+                                {
+}
+#line 1695 "cube.tab.c"
+    break;
+
+  case 38: /* selection: TOK_IF '(' condition ')' '{' globals '}'  */
+#line 127 "cube.y"
+                                                    {
+}
+#line 1702 "cube.tab.c"
+    break;
+
+  case 39: /* selection: TOK_IF '(' condition ')' '{' globals '}' TOK_ELSE '{' globals '}'  */
+#line 130 "cube.y"
+                                                                             {
+}
+#line 1709 "cube.tab.c"
+    break;
+
+  case 40: /* selection: TOK_IF '(' condition ')' '{' globals '}' TOK_ELSE selection  */
+#line 133 "cube.y"
+                                                                       {    
+}
+#line 1716 "cube.tab.c"
+    break;
+
+  case 41: /* condition: num_factor logic_operator num_factor  */
+#line 136 "cube.y"
+                                                {
+}
+#line 1723 "cube.tab.c"
+    break;
+
+  case 42: /* condition: '(' condition TOK_AND condition ')'  */
+#line 139 "cube.y"
+                                               {
+}
+#line 1730 "cube.tab.c"
+    break;
+
+  case 43: /* condition: '(' condition TOK_OR condition ')'  */
+#line 142 "cube.y"
+                                             {
+}
+#line 1737 "cube.tab.c"
+    break;
+
+  case 44: /* condition: num_expression  */
+#line 145 "cube.y"
+                          {
+}
+#line 1744 "cube.tab.c"
+    break;
+
+  case 45: /* condition: bool  */
+#line 148 "cube.y"
+                {
+}
+#line 1751 "cube.tab.c"
+    break;
+
+  case 46: /* bool: TOK_TRUE  */
+#line 151 "cube.y"
+               {
+}
+#line 1758 "cube.tab.c"
+    break;
+
+  case 47: /* bool: TOK_FALSE  */
+#line 154 "cube.y"
+                {
+}
+#line 1765 "cube.tab.c"
+    break;
+
+  case 48: /* bool: not  */
+#line 157 "cube.y"
+          {
+}
+#line 1772 "cube.tab.c"
+    break;
+
+  case 49: /* not: '!' '(' condition ')'  */
+#line 160 "cube.y"
+                          {
+}
+#line 1779 "cube.tab.c"
+    break;
+
+  case 50: /* logic_operator: TOK_DIFF  */
+#line 163 "cube.y"
+                         {
+}
+#line 1786 "cube.tab.c"
+    break;
+
+  case 51: /* logic_operator: TOK_EQUAL  */
+#line 166 "cube.y"
+                          {
+}
+#line 1793 "cube.tab.c"
+    break;
+
+  case 52: /* logic_operator: '>'  */
+#line 169 "cube.y"
+                    {
+}
+#line 1800 "cube.tab.c"
+    break;
+
+  case 53: /* logic_operator: TOK_GREATEREQUAL  */
+#line 172 "cube.y"
+                                 {
+}
+#line 1807 "cube.tab.c"
+    break;
+
+  case 54: /* logic_operator: '<'  */
+#line 175 "cube.y"
+                    {
+}
+#line 1814 "cube.tab.c"
+    break;
+
+  case 55: /* logic_operator: TOK_LESSEQUAL  */
+#line 178 "cube.y"
+                              {
+}
+#line 1821 "cube.tab.c"
+    break;
+
+  case 56: /* while: TOK_WHILE '(' TOK_INT ';' TOK_INT ';' TOK_INT ')' '{' globals '}'  */
+#line 181 "cube.y"
+                                                                        {
+}
+#line 1828 "cube.tab.c"
+    break;
+
+  case 57: /* while: TOK_WHILE '(' condition ')' '{' globals '}'  */
+#line 184 "cube.y"
+                                                  {
+}
+#line 1835 "cube.tab.c"
+    break;
+
+  case 58: /* for: TOK_FOR '(' for_init ';' condition ';' for_iter ')' '{' globals '}'  */
+#line 187 "cube.y"
+                                                                         {
+}
+#line 1842 "cube.tab.c"
+    break;
+
+  case 60: /* for_init: atribuition  */
+#line 191 "cube.y"
+                      {
+}
+#line 1849 "cube.tab.c"
+    break;
+
+  case 61: /* for_iter: atribuition  */
+#line 194 "cube.y"
+                      {
+}
+#line 1856 "cube.tab.c"
+    break;
+
+  case 62: /* break: TOK_BREAK ';'  */
+#line 197 "cube.y"
+                     {
+}
+#line 1863 "cube.tab.c"
     break;
 
 
-#line 1492 "cube.tab.c"
+#line 1867 "cube.tab.c"
 
       default: break;
     }
@@ -1712,6 +2087,4 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 86 "cube.y"
-
-
+#line 200 "cube.y"

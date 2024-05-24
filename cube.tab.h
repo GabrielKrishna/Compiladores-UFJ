@@ -63,19 +63,22 @@ extern int yydebug;
     TOK_FOR = 264,                 /* TOK_FOR  */
     TOK_BREAK = 265,               /* TOK_BREAK  */
     TYPE_BOOL = 266,               /* TYPE_BOOL  */
-    TOK_TRUE = 267,                /* TOK_TRUE  */
-    TOK_FALSE = 268,               /* TOK_FALSE  */
-    TYPE_INT = 269,                /* TYPE_INT  */
-    TYPE_FLOAT = 270,              /* TYPE_FLOAT  */
-    TYPE_CHAR = 271,               /* TYPE_CHAR  */
-    TYPE_STRING = 272,             /* TYPE_STRING  */
-    TOK_AND = 273,                 /* TOK_AND  */
-    TOK_OR = 274,                  /* TOK_OR  */
-    TOK_NOT = 275,                 /* TOK_NOT  */
-    TOK_LE = 276,                  /* TOK_LE  */
-    TOK_GE = 277,                  /* TOK_GE  */
-    TOK_EQ = 278,                  /* TOK_EQ  */
-    TOK_NE = 279                   /* TOK_NE  */
+    TYPE_INT = 267,                /* TYPE_INT  */
+    TYPE_FLOAT = 268,              /* TYPE_FLOAT  */
+    TYPE_CHAR = 269,               /* TYPE_CHAR  */
+    TYPE_STRING = 270,             /* TYPE_STRING  */
+    TOK_AND = 271,                 /* TOK_AND  */
+    TOK_OR = 272,                  /* TOK_OR  */
+    TOK_LESSEQUAL = 273,           /* TOK_LESSEQUAL  */
+    TOK_GREATEREQUAL = 274,        /* TOK_GREATEREQUAL  */
+    TOK_EQUAL = 275,               /* TOK_EQUAL  */
+    TOK_DIFF = 276,                /* TOK_DIFF  */
+    TOK_TRUE = 277,                /* TOK_TRUE  */
+    TOK_FALSE = 278,               /* TOK_FALSE  */
+    TOK_INT = 279,                 /* TOK_INT  */
+    TOK_FLOAT = 280,               /* TOK_FLOAT  */
+    TOK_CHAR = 281,                /* TOK_CHAR  */
+    TOK_STRING = 282               /* TOK_STRING  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
