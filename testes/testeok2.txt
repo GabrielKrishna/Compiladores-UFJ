@@ -1,0 +1,49 @@
+// Variable declaration and assignment
+int x = 5;
+float y = 3.14;
+char c = 'A';
+string s = "Hello";
+
+// Input/output operations
+print(x); // Should print: 5
+print(y); // Should print: 3.14
+print(c); // Should print: A
+print(s); // Should print: Hello
+
+var = scan(int);  // Input: 10
+print(x); // Should print: 10
+
+// Control structures
+if (x > 0) {
+    print(x);
+} else {
+    print(x);
+}
+
+int i = 0;
+while (i < 5) {
+    print(i);
+    i = i + 1;
+}
+
+for (j = 0; (j < 5); j = j + 1) {
+    print(j);
+}
+
+// Logical and arithmetic operations
+bool condition = true;
+if (condition && (x == 10)) {
+    print("Condition is true and x is 10");
+}
+
+// Error handling
+int z;
+print(z); // Error: z is uninitialized
+
+// Break statement
+for (int k = 0; k < 10; k = k + 1) {
+    if (k == 5) {
+        break;
+    }
+    print(k);
+}

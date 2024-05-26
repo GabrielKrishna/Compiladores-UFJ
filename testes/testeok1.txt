@@ -1,0 +1,28 @@
+int A = 1;
+
+C = "banana";
+
+var = scan(int);
+
+if((A < B || A == 3)){
+    A = 2;  
+} else if (A == B){
+    A = 1;
+} else {
+    A = 3;
+    A = "break 123";
+    print (A);
+}
+
+float B = 4.78;
+
+string s = "Hello world";
+
+char c = 'A';
+
+while(A < 7){
+    A = A + 1;
+}
+print(A);
+
+bool t = true;

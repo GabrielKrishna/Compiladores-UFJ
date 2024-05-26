@@ -1,4 +1,4 @@
 all:
-	flex cube.l
-	bison -d cube.y
-	${CC} *.c -o cube
+	flex namekian.l
+	bison -d namekian.y
+	${CC} *.c -o namekian

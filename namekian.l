@@ -1,6 +1,6 @@
 %{
 #include <stdio.h>
-#include "cube.tab.h"
+#include "namekian.tab.h"
 
 int yyerror(const char *s);
 
@@ -47,7 +47,6 @@ int yyerror(const char *s);
 "{" {return '{';}
 "}" {return '}';}
 ";" {return ';';}
-
 
 "true" {return TOK_TRUE;}
 "false" {return TOK_FALSE;}

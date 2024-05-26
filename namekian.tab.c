@@ -67,12 +67,12 @@
 
 
 /* First part of user prologue.  */
-#line 1 "cube.y"
+#line 1 "namekian.y"
 
 int yyerror(const char *s);
 int yylex(void);
 
-#line 76 "cube.tab.c"
+#line 76 "namekian.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -95,7 +95,7 @@ int yylex(void);
 #  endif
 # endif
 
-#include "cube.tab.h"
+#include "namekian.tab.h"
 /* Symbol kind.  */
 enum yysymbol_kind_t
 {
@@ -553,13 +553,13 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    38,    38,    40,    43,    46,    46,    46,    46,    46,
-      46,    46,    49,    52,    55,    58,    61,    64,    67,    70,
-      73,    76,    79,    82,    85,    88,    91,    94,    97,   100,
-     103,   106,   109,   112,   115,   118,   121,   124,   127,   130,
-     133,   136,   139,   142,   145,   148,   151,   154,   157,   160,
-     163,   166,   169,   172,   175,   178,   181,   184,   187,   190,
-     191,   194,   197
+       0,    17,    17,    19,    22,    25,    26,    27,    28,    29,
+      30,    31,    34,    37,    40,    43,    46,    49,    52,    55,
+      58,    61,    64,    67,    70,    73,    76,    79,    82,    85,
+      88,    91,    94,    97,   100,   103,   106,   109,   112,   115,
+     118,   121,   124,   127,   130,   133,   136,   139,   142,   145,
+     148,   151,   154,   157,   160,   163,   166,   169,   172,   175,
+     176,   179,   182
 };
 #endif
 
@@ -1492,378 +1492,378 @@ yyreduce:
   switch (yyn)
     {
   case 3: /* globals: globals global  */
-#line 40 "cube.y"
+#line 19 "namekian.y"
                         {
 }
-#line 1499 "cube.tab.c"
+#line 1499 "namekian.tab.c"
     break;
 
   case 4: /* globals: global  */
-#line 43 "cube.y"
+#line 22 "namekian.y"
                 {
 }
-#line 1506 "cube.tab.c"
+#line 1506 "namekian.tab.c"
     break;
 
   case 11: /* global: break  */
-#line 46 "cube.y"
-                                                                            {
+#line 31 "namekian.y"
+              {
 }
-#line 1513 "cube.tab.c"
+#line 1513 "namekian.tab.c"
     break;
 
   case 12: /* declaration: type TOK_IDENT '=' tok ';'  */
-#line 49 "cube.y"
+#line 34 "namekian.y"
                                         {
 }
-#line 1520 "cube.tab.c"
+#line 1520 "namekian.tab.c"
     break;
 
   case 13: /* declaration: type TOK_IDENT ';'  */
-#line 52 "cube.y"
+#line 37 "namekian.y"
                                 {
 }
-#line 1527 "cube.tab.c"
+#line 1527 "namekian.tab.c"
     break;
 
   case 14: /* atribuition: TOK_IDENT '=' tok ';'  */
-#line 55 "cube.y"
+#line 40 "namekian.y"
                                   {
 }
-#line 1534 "cube.tab.c"
+#line 1534 "namekian.tab.c"
     break;
 
   case 15: /* atribuition: TOK_IDENT '=' scan  */
-#line 58 "cube.y"
+#line 43 "namekian.y"
                                 {
 }
-#line 1541 "cube.tab.c"
+#line 1541 "namekian.tab.c"
     break;
 
   case 16: /* scan: TOK_SCAN '(' type ')' ';'  */
-#line 61 "cube.y"
+#line 46 "namekian.y"
                                {
 }
-#line 1548 "cube.tab.c"
+#line 1548 "namekian.tab.c"
     break;
 
   case 17: /* type: TYPE_BOOL  */
-#line 64 "cube.y"
+#line 49 "namekian.y"
                 {
 }
-#line 1555 "cube.tab.c"
+#line 1555 "namekian.tab.c"
     break;
 
   case 18: /* type: TYPE_INT  */
-#line 67 "cube.y"
+#line 52 "namekian.y"
                {
 }
-#line 1562 "cube.tab.c"
+#line 1562 "namekian.tab.c"
     break;
 
   case 19: /* type: TYPE_FLOAT  */
-#line 70 "cube.y"
+#line 55 "namekian.y"
                  {
 }
-#line 1569 "cube.tab.c"
+#line 1569 "namekian.tab.c"
     break;
 
   case 20: /* type: TYPE_CHAR  */
-#line 73 "cube.y"
+#line 58 "namekian.y"
                 {
 }
-#line 1576 "cube.tab.c"
+#line 1576 "namekian.tab.c"
     break;
 
   case 21: /* type: TYPE_STRING  */
-#line 76 "cube.y"
+#line 61 "namekian.y"
                   {
 }
-#line 1583 "cube.tab.c"
+#line 1583 "namekian.tab.c"
     break;
 
   case 22: /* tok: TOK_STRING  */
-#line 79 "cube.y"
+#line 64 "namekian.y"
                 {
 }
-#line 1590 "cube.tab.c"
+#line 1590 "namekian.tab.c"
     break;
 
   case 23: /* tok: condition  */
-#line 82 "cube.y"
+#line 67 "namekian.y"
                {
 }
-#line 1597 "cube.tab.c"
+#line 1597 "namekian.tab.c"
     break;
 
   case 24: /* tok: TOK_CHAR  */
-#line 85 "cube.y"
+#line 70 "namekian.y"
               {
 }
-#line 1604 "cube.tab.c"
+#line 1604 "namekian.tab.c"
     break;
 
   case 25: /* num_expression: num_expression '+' num_term  */
-#line 88 "cube.y"
+#line 73 "namekian.y"
                                             {
 }
-#line 1611 "cube.tab.c"
+#line 1611 "namekian.tab.c"
     break;
 
   case 26: /* num_expression: num_expression '-' num_term  */
-#line 91 "cube.y"
+#line 76 "namekian.y"
                                             {
 }
-#line 1618 "cube.tab.c"
+#line 1618 "namekian.tab.c"
     break;
 
   case 27: /* num_expression: num_term  */
-#line 94 "cube.y"
+#line 79 "namekian.y"
                          {
 }
-#line 1625 "cube.tab.c"
+#line 1625 "namekian.tab.c"
     break;
 
   case 28: /* num_term: num_term '*' num_factor  */
-#line 97 "cube.y"
+#line 82 "namekian.y"
                                   {
 }
-#line 1632 "cube.tab.c"
+#line 1632 "namekian.tab.c"
     break;
 
   case 29: /* num_term: num_term '/' num_factor  */
-#line 100 "cube.y"
+#line 85 "namekian.y"
                                   {
 }
-#line 1639 "cube.tab.c"
+#line 1639 "namekian.tab.c"
     break;
 
   case 30: /* num_term: num_factor  */
-#line 103 "cube.y"
+#line 88 "namekian.y"
                      {
 }
-#line 1646 "cube.tab.c"
+#line 1646 "namekian.tab.c"
     break;
 
   case 31: /* num_factor: '(' num_expression ')'  */
-#line 106 "cube.y"
+#line 91 "namekian.y"
                                    {
 }
-#line 1653 "cube.tab.c"
+#line 1653 "namekian.tab.c"
     break;
 
   case 32: /* num_factor: TOK_IDENT  */
-#line 109 "cube.y"
+#line 94 "namekian.y"
                       {
 }
-#line 1660 "cube.tab.c"
+#line 1660 "namekian.tab.c"
     break;
 
   case 33: /* num_factor: TOK_INT  */
-#line 112 "cube.y"
+#line 97 "namekian.y"
                     {
 }
-#line 1667 "cube.tab.c"
+#line 1667 "namekian.tab.c"
     break;
 
   case 34: /* num_factor: TOK_FLOAT  */
-#line 115 "cube.y"
+#line 100 "namekian.y"
                       {
 }
-#line 1674 "cube.tab.c"
+#line 1674 "namekian.tab.c"
     break;
 
   case 35: /* num_factor: unary  */
-#line 118 "cube.y"
+#line 103 "namekian.y"
                   {
 }
-#line 1681 "cube.tab.c"
+#line 1681 "namekian.tab.c"
     break;
 
   case 36: /* unary: '-' num_factor  */
-#line 121 "cube.y"
+#line 106 "namekian.y"
                       {
 }
-#line 1688 "cube.tab.c"
+#line 1688 "namekian.tab.c"
     break;
 
   case 37: /* print: TOK_PRINT '(' tok ')' ';'  */
-#line 124 "cube.y"
+#line 109 "namekian.y"
                                 {
 }
-#line 1695 "cube.tab.c"
+#line 1695 "namekian.tab.c"
     break;
 
   case 38: /* selection: TOK_IF '(' condition ')' '{' globals '}'  */
-#line 127 "cube.y"
+#line 112 "namekian.y"
                                                     {
 }
-#line 1702 "cube.tab.c"
+#line 1702 "namekian.tab.c"
     break;
 
   case 39: /* selection: TOK_IF '(' condition ')' '{' globals '}' TOK_ELSE '{' globals '}'  */
-#line 130 "cube.y"
+#line 115 "namekian.y"
                                                                              {
 }
-#line 1709 "cube.tab.c"
+#line 1709 "namekian.tab.c"
     break;
 
   case 40: /* selection: TOK_IF '(' condition ')' '{' globals '}' TOK_ELSE selection  */
-#line 133 "cube.y"
+#line 118 "namekian.y"
                                                                        {    
 }
-#line 1716 "cube.tab.c"
+#line 1716 "namekian.tab.c"
     break;
 
   case 41: /* condition: num_factor logic_operator num_factor  */
-#line 136 "cube.y"
+#line 121 "namekian.y"
                                                 {
 }
-#line 1723 "cube.tab.c"
+#line 1723 "namekian.tab.c"
     break;
 
   case 42: /* condition: '(' condition TOK_AND condition ')'  */
-#line 139 "cube.y"
+#line 124 "namekian.y"
                                                {
 }
-#line 1730 "cube.tab.c"
+#line 1730 "namekian.tab.c"
     break;
 
   case 43: /* condition: '(' condition TOK_OR condition ')'  */
-#line 142 "cube.y"
+#line 127 "namekian.y"
                                              {
 }
-#line 1737 "cube.tab.c"
+#line 1737 "namekian.tab.c"
     break;
 
   case 44: /* condition: num_expression  */
-#line 145 "cube.y"
+#line 130 "namekian.y"
                           {
 }
-#line 1744 "cube.tab.c"
+#line 1744 "namekian.tab.c"
     break;
 
   case 45: /* condition: bool  */
-#line 148 "cube.y"
+#line 133 "namekian.y"
                 {
 }
-#line 1751 "cube.tab.c"
+#line 1751 "namekian.tab.c"
     break;
 
   case 46: /* bool: TOK_TRUE  */
-#line 151 "cube.y"
+#line 136 "namekian.y"
                {
 }
-#line 1758 "cube.tab.c"
+#line 1758 "namekian.tab.c"
     break;
 
   case 47: /* bool: TOK_FALSE  */
-#line 154 "cube.y"
+#line 139 "namekian.y"
                 {
 }
-#line 1765 "cube.tab.c"
+#line 1765 "namekian.tab.c"
     break;
 
   case 48: /* bool: not  */
-#line 157 "cube.y"
+#line 142 "namekian.y"
           {
 }
-#line 1772 "cube.tab.c"
+#line 1772 "namekian.tab.c"
     break;
 
   case 49: /* not: '!' '(' condition ')'  */
-#line 160 "cube.y"
+#line 145 "namekian.y"
                           {
 }
-#line 1779 "cube.tab.c"
+#line 1779 "namekian.tab.c"
     break;
 
   case 50: /* logic_operator: TOK_DIFF  */
-#line 163 "cube.y"
+#line 148 "namekian.y"
                          {
 }
-#line 1786 "cube.tab.c"
+#line 1786 "namekian.tab.c"
     break;
 
   case 51: /* logic_operator: TOK_EQUAL  */
-#line 166 "cube.y"
+#line 151 "namekian.y"
                           {
 }
-#line 1793 "cube.tab.c"
+#line 1793 "namekian.tab.c"
     break;
 
   case 52: /* logic_operator: '>'  */
-#line 169 "cube.y"
+#line 154 "namekian.y"
                     {
 }
-#line 1800 "cube.tab.c"
+#line 1800 "namekian.tab.c"
     break;
 
   case 53: /* logic_operator: TOK_GREATEREQUAL  */
-#line 172 "cube.y"
+#line 157 "namekian.y"
                                  {
 }
-#line 1807 "cube.tab.c"
+#line 1807 "namekian.tab.c"
     break;
 
   case 54: /* logic_operator: '<'  */
-#line 175 "cube.y"
+#line 160 "namekian.y"
                     {
 }
-#line 1814 "cube.tab.c"
+#line 1814 "namekian.tab.c"
     break;
 
   case 55: /* logic_operator: TOK_LESSEQUAL  */
-#line 178 "cube.y"
+#line 163 "namekian.y"
                               {
 }
-#line 1821 "cube.tab.c"
+#line 1821 "namekian.tab.c"
     break;
 
   case 56: /* while: TOK_WHILE '(' TOK_INT ';' TOK_INT ';' TOK_INT ')' '{' globals '}'  */
-#line 181 "cube.y"
+#line 166 "namekian.y"
                                                                         {
 }
-#line 1828 "cube.tab.c"
+#line 1828 "namekian.tab.c"
     break;
 
   case 57: /* while: TOK_WHILE '(' condition ')' '{' globals '}'  */
-#line 184 "cube.y"
+#line 169 "namekian.y"
                                                   {
 }
-#line 1835 "cube.tab.c"
+#line 1835 "namekian.tab.c"
     break;
 
   case 58: /* for: TOK_FOR '(' for_init ';' condition ';' for_iter ')' '{' globals '}'  */
-#line 187 "cube.y"
+#line 172 "namekian.y"
                                                                          {
 }
-#line 1842 "cube.tab.c"
+#line 1842 "namekian.tab.c"
     break;
 
   case 60: /* for_init: atribuition  */
-#line 191 "cube.y"
+#line 176 "namekian.y"
                       {
 }
-#line 1849 "cube.tab.c"
+#line 1849 "namekian.tab.c"
     break;
 
   case 61: /* for_iter: atribuition  */
-#line 194 "cube.y"
+#line 179 "namekian.y"
                       {
 }
-#line 1856 "cube.tab.c"
+#line 1856 "namekian.tab.c"
     break;
 
   case 62: /* break: TOK_BREAK ';'  */
-#line 197 "cube.y"
+#line 182 "namekian.y"
                      {
 }
-#line 1863 "cube.tab.c"
+#line 1863 "namekian.tab.c"
     break;
 
 
-#line 1867 "cube.tab.c"
+#line 1867 "namekian.tab.c"
 
       default: break;
     }
@@ -2087,4 +2087,4 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 200 "cube.y"
+#line 185 "namekian.y"

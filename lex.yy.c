@@ -530,10 +530,10 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "cube.l"
-#line 2 "cube.l"
+#line 1 "namekian.l"
+#line 2 "namekian.l"
 #include <stdio.h>
-#include "cube.tab.h"
+#include "namekian.tab.h"
 
 int yyerror(const char *s);
 
@@ -755,7 +755,7 @@ YY_DECL
 		}
 
 	{
-#line 11 "cube.l"
+#line 11 "namekian.l"
 
 
 #line 761 "lex.yy.c"
@@ -828,210 +828,210 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 13 "cube.l"
+#line 13 "namekian.l"
 {}
 	YY_BREAK
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 14 "cube.l"
+#line 14 "namekian.l"
 {}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 16 "cube.l"
+#line 16 "namekian.l"
 {return TOK_PRINT;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 17 "cube.l"
+#line 17 "namekian.l"
 {return TOK_SCAN;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 18 "cube.l"
+#line 18 "namekian.l"
 {return TOK_IF;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 19 "cube.l"
+#line 19 "namekian.l"
 {return TOK_ELSE;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 20 "cube.l"
+#line 20 "namekian.l"
 {return TOK_WHILE;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 21 "cube.l"
+#line 21 "namekian.l"
 {return TOK_FOR;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 22 "cube.l"
+#line 22 "namekian.l"
 {return TOK_BREAK;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 23 "cube.l"
+#line 23 "namekian.l"
 {return TYPE_BOOL;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 24 "cube.l"
+#line 24 "namekian.l"
 {return TYPE_INT;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 25 "cube.l"
+#line 25 "namekian.l"
 {return TYPE_FLOAT;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 26 "cube.l"
+#line 26 "namekian.l"
 {return TYPE_CHAR;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 27 "cube.l"
+#line 27 "namekian.l"
 {return TYPE_STRING;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 29 "cube.l"
+#line 29 "namekian.l"
 {return TOK_AND;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 30 "cube.l"
+#line 30 "namekian.l"
 {return TOK_OR;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 32 "cube.l"
+#line 32 "namekian.l"
 {return '=';}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 33 "cube.l"
+#line 33 "namekian.l"
 {return TOK_LESSEQUAL;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 34 "cube.l"
+#line 34 "namekian.l"
 {return TOK_GREATEREQUAL;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 35 "cube.l"
+#line 35 "namekian.l"
 {return '<';}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 36 "cube.l"
+#line 36 "namekian.l"
 {return '>';}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 37 "cube.l"
+#line 37 "namekian.l"
 {return TOK_EQUAL;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 38 "cube.l"
+#line 38 "namekian.l"
 {return TOK_DIFF;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 40 "cube.l"
+#line 40 "namekian.l"
 {return '+';}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 41 "cube.l"
+#line 41 "namekian.l"
 {return '-';}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 42 "cube.l"
+#line 42 "namekian.l"
 {return '*';}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 43 "cube.l"
+#line 43 "namekian.l"
 {return '/';}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 45 "cube.l"
+#line 45 "namekian.l"
 {return '(';}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 46 "cube.l"
+#line 46 "namekian.l"
 {return ')';}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 47 "cube.l"
+#line 47 "namekian.l"
 {return '{';}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 48 "cube.l"
+#line 48 "namekian.l"
 {return '}';}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 49 "cube.l"
+#line 49 "namekian.l"
 {return ';';}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 52 "cube.l"
+#line 51 "namekian.l"
 {return TOK_TRUE;}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 53 "cube.l"
+#line 52 "namekian.l"
 {return TOK_FALSE;}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 54 "cube.l"
+#line 53 "namekian.l"
 {return TOK_IDENT;}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 55 "cube.l"
+#line 54 "namekian.l"
 {return TOK_INT;}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 56 "cube.l"
+#line 55 "namekian.l"
 {return TOK_FLOAT;}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 57 "cube.l"
+#line 56 "namekian.l"
 {return TOK_CHAR;}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 58 "cube.l"
+#line 57 "namekian.l"
 {return TOK_STRING;}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 60 "cube.l"
+#line 59 "namekian.l"
 {
     printf("Símbolo não reconhecido %c\n", yytext[0]);
   }
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 64 "cube.l"
+#line 63 "namekian.l"
 ECHO;
 	YY_BREAK
 #line 1037 "lex.yy.c"
@@ -2051,7 +2051,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 64 "cube.l"
+#line 63 "namekian.l"
 
 
 int yywrap(){

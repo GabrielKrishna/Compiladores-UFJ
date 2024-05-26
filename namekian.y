@@ -5,31 +5,10 @@ int yylex(void);
 
 %define parse.error verbose
 
-%token TOK_IDENT
-%token TOK_PRINT
-%token TOK_SCAN
-%token TOK_IF
-%token TOK_ELSE
-%token TOK_WHILE
-%token TOK_FOR
-%token TOK_BREAK
-%token TYPE_BOOL
-%token TYPE_INT
-%token TYPE_FLOAT
-%token TYPE_CHAR
-%token TYPE_STRING
-%token TOK_AND
-%token TOK_OR
-%token TOK_LESSEQUAL
-%token TOK_GREATEREQUAL
-%token TOK_EQUAL
-%token TOK_DIFF
-%token TOK_TRUE
-%token TOK_FALSE
-%token TOK_INT
-%token TOK_FLOAT
-%token TOK_CHAR
-%token TOK_STRING
+%token TOK_IDENT TOK_PRINT TOK_SCAN TOK_IF TOK_ELSE TOK_WHILE TOK_FOR TOK_BREAK
+%token TYPE_BOOL TYPE_INT TYPE_FLOAT TYPE_CHAR TYPE_STRING
+%token TOK_AND TOK_OR TOK_LESSEQUAL TOK_GREATEREQUAL TOK_EQUAL TOK_DIFF
+%token TOK_TRUE TOK_FALSE TOK_INT TOK_FLOAT TOK_CHAR TOK_STRING
 
 %start program
 
@@ -43,7 +22,13 @@ globals : globals global{
 globals : global{
 }
 
-global : declaration | atribuition | while | for | print | selection | break{
+global : declaration
+       | atribuition
+       | while
+       | for
+       | print
+       | selection
+       | break{
 }
 
 declaration : type TOK_IDENT '=' tok ';'{
