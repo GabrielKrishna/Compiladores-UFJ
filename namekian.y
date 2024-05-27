@@ -107,13 +107,13 @@ for : TOK_FOR '(' for_init ';' condition ';' for_iter ')' '{' globals '}'{
 }
 
 for_init : declaration 
-         | atribuition{
-}
+         | atribuition
+		 ;
 
-for_iter : atribuition{
-}
+for_iter : atribuition
+		 ;
 
-break : TOK_BREAK ';'{
-}
+break : TOK_BREAK ';'
+	  ;
 
 %%

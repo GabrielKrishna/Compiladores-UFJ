@@ -1507,29 +1507,8 @@ yyreduce:
 #line 1508 "namekian.tab.c"
     break;
 
-  case 58: /* for_init: atribuition  */
-#line 110 "namekian.y"
-                      {
-}
-#line 1515 "namekian.tab.c"
-    break;
 
-  case 59: /* for_iter: atribuition  */
-#line 113 "namekian.y"
-                      {
-}
-#line 1522 "namekian.tab.c"
-    break;
-
-  case 60: /* break: TOK_BREAK ';'  */
-#line 116 "namekian.y"
-                     {
-}
-#line 1529 "namekian.tab.c"
-    break;
-
-
-#line 1533 "namekian.tab.c"
+#line 1512 "namekian.tab.c"
 
       default: break;
     }

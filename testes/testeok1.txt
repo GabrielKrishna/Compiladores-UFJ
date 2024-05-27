@@ -1,30 +1,30 @@
-int A = 1;
+tamakuroru A = 1;
 
-bool t = true;
+paatoratemorinpe t = true;
 
-C = "banana";
+pimoposo C = "banana";
 
-var = scan(int);
+var = puyakkiriguo(tamakuroru);
 
-if(true){
+pumerettohero(a){
     A = 2;  
-} else if (A == B){
+} tsutenonipiro pumerettohero (A == B){
     A = 1;
-} else {
+} tsutenonipiro {
     A = 3;
-    A = "break 123";
-    print (A);
+    A = "terumopara 123";
+    avishta (A);
 }
 
-float B = 4.78;
+rutemiraru B = 4.78;
 
-string s = "Hello world";
+pimoposo s = "Hello world";
 
-char c = 'A';
+peropuppo c = 'A';
 
-while(A < 7){
+tetoraputo(A < 7){
     A = A + 1;
 }
-print(A);
+avishta(A);
 
-bool t = true;
+paatoratemorinpe t = hotto;

@@ -13,18 +13,18 @@ int yyerror(const char *s);
 [ \t\r\n] {}
 "//".*\n {}
 
-"print" {return TOK_PRINT;}
-"scan" {return TOK_SCAN;}
-"if" {return TOK_IF;}
-"else" {return TOK_ELSE;}
-"while" {return TOK_WHILE;}
-"for" {return TOK_FOR;}
-"break" {return TOK_BREAK;}
-"bool" {return TYPE_BOOL;}
-"int" {return TYPE_INT;}
-"float" {return TYPE_FLOAT;}
-"char" {return TYPE_CHAR;}
-"string" {return TYPE_STRING;}
+"avishta" {return TOK_PRINT;}
+"puyakkiriguo" {return TOK_SCAN;}
+"pumerettohero" {return TOK_IF;}
+"tsutenonipiro" {return TOK_ELSE;}
+"tetoraputo" {return TOK_WHILE;}
+"fanparitsu" {return TOK_FOR;}
+"terumopara" {return TOK_BREAK;}
+"paatoratemorinpe" {return TYPE_BOOL;}
+"tamakuroru" {return TYPE_INT;}
+"rutemiraru" {return TYPE_FLOAT;}
+"peropuppo" {return TYPE_CHAR;}
+"pimoposo" {return TYPE_STRING;}
 
 "&&" {return TOK_AND;}
 "\|\|" {return TOK_OR;}
@@ -48,8 +48,8 @@ int yyerror(const char *s);
 "}" {return '}';}
 ";" {return ';';}
 
-"true" {return TOK_TRUE;}
-"false" {return TOK_FALSE;}
+"hotto" {return TOK_TRUE;}
+"uotoku" {return TOK_FALSE;}
 [a-zA-Z_][a-zA-Z0-9_]* {return TOK_IDENT;}
 [0-9]+ {return TOK_INT;}
 [0-9]+\.[0-9]* {return TOK_FLOAT;}
