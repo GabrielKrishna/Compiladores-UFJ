@@ -1,37 +1,8 @@
-// Variable declaration and assignment
-int x = 5;
-float y = 3.14;
-char c = 'A';
-string s = "Hello";
+//Escrever e Escanear
+avishta("string");
+scan_variable = puyakkiriguo(tamakuroru);
 
-// Input/output operations
-print(x); // Should print: 5
-print(y); // Should print: 3.14
-print(c); // Should print: A
-print(s); // Should print: Hello
-
-var = scan(int);  // Input: 10
-print(x); // Should print: 10
-
-// Control structures
-if (x > 0) {
-    print(x);
-} else {
-    print(x);
-}
-
-int i = 0;
-while (i < 5) {
-    print(i);
-    i = i + 1;
-}
-
-// Logical and arithmetic operations
-bool condition = true;
-if ((condition && x == 10)) {
-    print("Condition is true and x is 10");
-}
-
-// Error handling
-int z;
-print(z);
+//Operacoes
+a = 10 * 5;
+b = 15 + 5;
+c = (a - b) / 2;

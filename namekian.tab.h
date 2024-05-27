@@ -60,25 +60,24 @@ extern int yydebug;
     TOK_IF = 261,                  /* TOK_IF  */
     TOK_ELSE = 262,                /* TOK_ELSE  */
     TOK_WHILE = 263,               /* TOK_WHILE  */
-    TOK_FOR = 264,                 /* TOK_FOR  */
-    TOK_BREAK = 265,               /* TOK_BREAK  */
-    TYPE_BOOL = 266,               /* TYPE_BOOL  */
-    TYPE_INT = 267,                /* TYPE_INT  */
-    TYPE_FLOAT = 268,              /* TYPE_FLOAT  */
-    TYPE_CHAR = 269,               /* TYPE_CHAR  */
-    TYPE_STRING = 270,             /* TYPE_STRING  */
-    TOK_AND = 271,                 /* TOK_AND  */
-    TOK_OR = 272,                  /* TOK_OR  */
-    TOK_LESSEQUAL = 273,           /* TOK_LESSEQUAL  */
-    TOK_GREATEREQUAL = 274,        /* TOK_GREATEREQUAL  */
-    TOK_EQUAL = 275,               /* TOK_EQUAL  */
-    TOK_DIFF = 276,                /* TOK_DIFF  */
-    TOK_TRUE = 277,                /* TOK_TRUE  */
-    TOK_FALSE = 278,               /* TOK_FALSE  */
-    TOK_INT = 279,                 /* TOK_INT  */
-    TOK_FLOAT = 280,               /* TOK_FLOAT  */
-    TOK_CHAR = 281,                /* TOK_CHAR  */
-    TOK_STRING = 282               /* TOK_STRING  */
+    TOK_BREAK = 264,               /* TOK_BREAK  */
+    TYPE_BOOL = 265,               /* TYPE_BOOL  */
+    TYPE_INT = 266,                /* TYPE_INT  */
+    TYPE_FLOAT = 267,              /* TYPE_FLOAT  */
+    TYPE_CHAR = 268,               /* TYPE_CHAR  */
+    TYPE_STRING = 269,             /* TYPE_STRING  */
+    TOK_AND = 270,                 /* TOK_AND  */
+    TOK_OR = 271,                  /* TOK_OR  */
+    TOK_LESSEQUAL = 272,           /* TOK_LESSEQUAL  */
+    TOK_GREATEREQUAL = 273,        /* TOK_GREATEREQUAL  */
+    TOK_EQUAL = 274,               /* TOK_EQUAL  */
+    TOK_DIFF = 275,                /* TOK_DIFF  */
+    TOK_TRUE = 276,                /* TOK_TRUE  */
+    TOK_FALSE = 277,               /* TOK_FALSE  */
+    TOK_INT = 278,                 /* TOK_INT  */
+    TOK_FLOAT = 279,               /* TOK_FLOAT  */
+    TOK_CHAR = 280,                /* TOK_CHAR  */
+    TOK_STRING = 281               /* TOK_STRING  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif

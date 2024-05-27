@@ -1,30 +1,13 @@
-tamakuroru A = 1;
+//Definicao de variáveis, passando ou não valores
+paatoratemorinpe b = hotto;
+tamakuroru i;
+rutemiraru f = 3.5;
+peropuppo c;
+pimoposo s = "string";
 
-paatoratemorinpe t = hotto;
-
-pimoposo C = "banana";
-
-var = puyakkiriguo(tamakuroru);
-
-pumerettohero(a){
-    A = 2;  
-} tsutenonipiro pumerettohero (A == B){
-    A = 1;
-} tsutenonipiro {
-    A = 3;
-    A = "terumopara 123";
-    avishta (A);
-}
-
-rutemiraru B = 4.78;
-
-pimoposo s = "Hello world";
-
-peropuppo c = 'A';
-
-tetoraputo(A < 7){
-    A = A + 1;
-}
-avishta(A);
-
-paatoratemorinpe t = hotto;
+//Atribuicao de variaveis
+bool_variable = outoku;
+int_variable = 10;
+float_variable = 5.5;
+char_variable = 'a';
+string_variable = "nome";

@@ -1,0 +1,17 @@
+//Condicionais e Loop
+pumerettohero(a != 5){
+    avishta("a diferente de 5");
+}
+
+pumerettohero((a > 5 && b < 10)){
+    avishta("a maior que 5 e b menor que 10");
+} tsutenonipiro pumerettohero((a == 5 && b == 10)){
+    avishta("a igual 5 e b igual a 10");
+} tsutenonipiro{
+    avishta("a menor que 5 e b maior que 10");
+}
+
+tetoraputo(!((a >= 5 || b <= 10))){
+    a = a + 1;
+    terumopara;
+}

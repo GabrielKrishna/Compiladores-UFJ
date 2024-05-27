@@ -18,7 +18,6 @@ int yyerror(const char *s);
 "pumerettohero" {return TOK_IF;}
 "tsutenonipiro" {return TOK_ELSE;}
 "tetoraputo" {return TOK_WHILE;}
-"fanparitsu" {return TOK_FOR;}
 "terumopara" {return TOK_BREAK;}
 "paatoratemorinpe" {return TYPE_BOOL;}
 "tamakuroru" {return TYPE_INT;}
@@ -28,6 +27,7 @@ int yyerror(const char *s);
 
 "&&" {return TOK_AND;}
 "\|\|" {return TOK_OR;}
+"!" {return '!';}
 
 "=" {return '=';}
 "<=" {return TOK_LESSEQUAL;}

@@ -1,4 +1,6 @@
 %{
+#include "nodes.h"
+
 int yyerror(const char *s);
 int yylex(void);
 %}

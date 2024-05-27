@@ -69,10 +69,12 @@
 /* First part of user prologue.  */
 #line 1 "calc.y"
 
+#include "nodes.h"
+
 int yyerror(const char *s);
 int yylex(void);
 
-#line 76 "calc.tab.c"
+#line 78 "calc.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -509,8 +511,8 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    17,    17,    19,    22,    25,    28,    31,    34,    37,
-      40,    43,    46,    49,    52,    55,    58,    61,    64
+       0,    19,    19,    21,    24,    27,    30,    33,    36,    39,
+      42,    45,    48,    51,    54,    57,    60,    63,    66
 };
 #endif
 
@@ -1354,119 +1356,119 @@ yyreduce:
   switch (yyn)
     {
   case 3: /* globals: globals global  */
-#line 19 "calc.y"
+#line 21 "calc.y"
                          {
 }
-#line 1361 "calc.tab.c"
+#line 1363 "calc.tab.c"
     break;
 
   case 4: /* globals: global  */
-#line 22 "calc.y"
+#line 24 "calc.y"
                  {
 }
-#line 1368 "calc.tab.c"
+#line 1370 "calc.tab.c"
     break;
 
   case 5: /* global: TOK_IDENT '=' expr ';'  */
-#line 25 "calc.y"
+#line 27 "calc.y"
                                 {
 }
-#line 1375 "calc.tab.c"
+#line 1377 "calc.tab.c"
     break;
 
   case 6: /* global: TOK_PRINT TOK_IDENT ';'  */
-#line 28 "calc.y"
+#line 30 "calc.y"
                                  {
 }
-#line 1382 "calc.tab.c"
+#line 1384 "calc.tab.c"
     break;
 
   case 7: /* expr: expr '+' term  */
-#line 31 "calc.y"
+#line 33 "calc.y"
                      {
 }
-#line 1389 "calc.tab.c"
+#line 1391 "calc.tab.c"
     break;
 
   case 8: /* expr: expr '-' term  */
-#line 34 "calc.y"
+#line 36 "calc.y"
                      {
 }
-#line 1396 "calc.tab.c"
+#line 1398 "calc.tab.c"
     break;
 
   case 9: /* expr: term  */
-#line 37 "calc.y"
+#line 39 "calc.y"
             {
 }
-#line 1403 "calc.tab.c"
+#line 1405 "calc.tab.c"
     break;
 
   case 10: /* term: term '*' factor  */
-#line 40 "calc.y"
+#line 42 "calc.y"
                        {
 }
-#line 1410 "calc.tab.c"
+#line 1412 "calc.tab.c"
     break;
 
   case 11: /* term: term '/' factor  */
-#line 43 "calc.y"
+#line 45 "calc.y"
                        {
 }
-#line 1417 "calc.tab.c"
+#line 1419 "calc.tab.c"
     break;
 
   case 12: /* term: factor  */
-#line 46 "calc.y"
+#line 48 "calc.y"
               {
 }
-#line 1424 "calc.tab.c"
+#line 1426 "calc.tab.c"
     break;
 
   case 13: /* factor: '(' expr ')'  */
-#line 49 "calc.y"
+#line 51 "calc.y"
                       {
 }
-#line 1431 "calc.tab.c"
+#line 1433 "calc.tab.c"
     break;
 
   case 14: /* factor: TOK_IDENT  */
-#line 52 "calc.y"
+#line 54 "calc.y"
                    {
 }
-#line 1438 "calc.tab.c"
+#line 1440 "calc.tab.c"
     break;
 
   case 15: /* factor: TOK_INT  */
-#line 55 "calc.y"
+#line 57 "calc.y"
                  {
 }
-#line 1445 "calc.tab.c"
+#line 1447 "calc.tab.c"
     break;
 
   case 16: /* factor: TOK_FLOAT  */
-#line 58 "calc.y"
+#line 60 "calc.y"
                    {
 }
-#line 1452 "calc.tab.c"
+#line 1454 "calc.tab.c"
     break;
 
   case 17: /* factor: unary  */
-#line 61 "calc.y"
+#line 63 "calc.y"
                {
 }
-#line 1459 "calc.tab.c"
+#line 1461 "calc.tab.c"
     break;
 
   case 18: /* unary: '-' factor  */
-#line 64 "calc.y"
+#line 66 "calc.y"
                    {
 }
-#line 1466 "calc.tab.c"
+#line 1468 "calc.tab.c"
     break;
 
 
-#line 1470 "calc.tab.c"
+#line 1472 "calc.tab.c"
 
       default: break;
     }
@@ -1690,5 +1692,5 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 67 "calc.y"
+#line 69 "calc.y"
 

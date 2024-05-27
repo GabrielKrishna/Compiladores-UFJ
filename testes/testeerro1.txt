@@ -1,0 +1,2 @@
+//Tentar passar um valor de string em uma variavel char
+peropuppo c = "nome";
