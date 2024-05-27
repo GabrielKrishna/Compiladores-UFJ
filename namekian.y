@@ -14,106 +14,137 @@ int yylex(void);
 
 %%
 
-program : globals;
+program
+	: globals;
 
-globals : globals global
-		| global
-		;
+globals
+	: globals global
+	| global
+	;
 
-global : declaration
-       | atribuition
-       | while
-       | for
-       | print
-       | selection
-       | break
-	   ;
+global
+	: declaration
+    | atribuition
+    | while
+    | for
+    | print
+    | selection
+    | break
+	;
 
-declaration : type TOK_IDENT '=' tok ';'
-			| type TOK_IDENT ';'
-			;
+declaration
+	: type TOK_IDENT '=' tok ';'
+	| type TOK_IDENT ';'
+	;
 
-atribuition : TOK_IDENT '=' tok ';'
-			| TOK_IDENT '=' scan
-			;
+atribuition
+	: TOK_IDENT '=' tok ';'
+	| TOK_IDENT '=' scan
+	;
 
-scan : TOK_SCAN '(' type ')'';'
-	 ;
+scan
+	: TOK_SCAN '(' type ')'';'
+	;
 
-type : TYPE_BOOL
-	 | TYPE_INT
-	 | TYPE_FLOAT
-	 | TYPE_CHAR
-	 | TYPE_STRING
-	 ;
+type
+	: TYPE_BOOL
+	| TYPE_INT
+	| TYPE_FLOAT
+	| TYPE_CHAR
+	| TYPE_STRING
+	;
 
-tok : TOK_STRING
+tok
+	: TOK_STRING
 	| TOK_CHAR
 	| condition
 	;
 
-num_expression : num_expression '+' num_term
-			   | num_expression '-' num_term
-			   | num_term
-			   ;
+num_expression
+	: num_expression '+' num_term
+	| num_expression '-' num_term
+	| num_term
+	;
 
-num_term : num_term '*' num_factor
-		 | num_term '/' num_factor
-		 | num_factor
-		 ;
+num_term
+	: num_term '*' num_factor
+	| num_term '/' num_factor
+	| num_factor
+	;
 
-num_factor : '(' num_expression ')'
-		   | TOK_IDENT
-		   | TOK_INT
-		   | TOK_FLOAT
-		   | unary
-		   ;
+num_factor
+	: '(' num_expression ')'
+	| TOK_IDENT
+	| TOK_INT
+	| TOK_FLOAT
+	| unary
+	;
 
-unary : '-' num_factor{
-}
+unary
+	: '-' num_factor
+	;
 
-print : TOK_PRINT '(' tok ')'';'{
-}
+print
+	: TOK_PRINT '(' tok ')'';'
+	;
 
-selection : TOK_IF '(' condition ')' '{' globals '}'
-		  | TOK_IF '(' condition ')' '{' globals '}' TOK_ELSE '{' globals '}'
-		  | TOK_IF '(' condition ')' '{' globals '}' TOK_ELSE selection
-		  ;
+selection
+	: TOK_IF '(' condition ')' '{' globals '}'
+	| TOK_IF '(' condition ')' '{' globals '}' TOK_ELSE '{' globals '}'
+	| TOK_IF '(' condition ')' '{' globals '}' TOK_ELSE selection
+	;
 
-condition : num_factor logic_operator num_factor
-		  | '(' condition TOK_AND condition ')'
-		  | '(' condition TOK_OR condition ')'
-		  | num_expression
-		  | bool
-		  ;
+condition
+	: num_factor relational_operator num_factor
+	| '(' condition logic_operator condition ')'
+	| num_expression
+	| bool
+	;
 
-bool : TOK_TRUE
-	 | TOK_FALSE
-	 ;
+bool
+	: TOK_TRUE
+	| TOK_FALSE
+	| not
+	;
 
-logic_operator : TOK_EQUAL
-			   | TOK_DIFF
-			   | '>'
-			   | TOK_GREATEREQUAL
-			   | '<'
-			   | TOK_LESSEQUAL
-			   ;
+not
+	: '!''(' condition ')'
+	;
 
-while : TOK_WHILE '(' TOK_INT ';' TOK_INT ';' TOK_INT ')''{' globals '}'
-	  | TOK_WHILE '(' condition ')''{' globals '}'
-	  ;
+relational_operator
+	: TOK_EQUAL
+	| TOK_DIFF
+	| '>'
+	| TOK_GREATEREQUAL
+	| '<'
+	| TOK_LESSEQUAL
+	;
 
-for : TOK_FOR '(' for_init ';' condition ';' for_iter ')' '{' globals '}'{
-}
+logic_operator
+	: TOK_AND
+	| TOK_OR
+	;
 
-for_init : declaration 
-         | atribuition
-		 ;
+while
+	: TOK_WHILE '(' TOK_INT ';' TOK_INT ';' TOK_INT ')''{' globals '}'
+	| TOK_WHILE '(' condition ')''{' globals '}'
+	;
 
-for_iter : atribuition
-		 ;
+for
+	: TOK_FOR '(' for_init ';' condition ';' for_iter ')' '{' globals '}'
+	;
 
-break : TOK_BREAK ';'
-	  ;
+for_init
+	: declaration 
+    | atribuition
+	;
+
+for_iter
+	: atribuition
+	;
+
+break
+	: TOK_BREAK ';'
+	;
 
 %%

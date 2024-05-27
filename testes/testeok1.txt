@@ -1,6 +1,6 @@
 tamakuroru A = 1;
 
-paatoratemorinpe t = true;
+paatoratemorinpe t = hotto;
 
 pimoposo C = "banana";
 
