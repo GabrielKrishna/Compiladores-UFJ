@@ -1,5 +1,8 @@
 %{
 #include <stdio.h>
+#include <stdlib.h>
+
+class Node;
 #include "calc.tab.h"
 
 int yyerror(const char *s);
@@ -26,14 +29,17 @@ int yyerror(const char *s);
 "=" {return '=';}
 
 [a-zA-Z_][a-zA-Z0-9_]* {
+  yylval.str = strndup(yytext, yyleng);
   return TOK_IDENT;
 }
 
 [0-9]+\.[0-9]* {
+  yylval.flt = atof(yytext);
   return TOK_FLOAT;
 }
 
 [0-9]+ {
+  yylval.itg = atoi(yytext);
   return TOK_INT;
 }
 
