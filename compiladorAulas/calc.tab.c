@@ -511,8 +511,8 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    32,    32,    37,    42,    48,    52,    57,    61,    65,
-      69,    73,    77,    81,    85,    89,    93,    97,   101
+       0,    32,    32,    40,    45,    51,    55,    60,    64,    68,
+      72,    76,    80,    84,    88,    92,    96,   100,   104
 };
 #endif
 
@@ -1358,146 +1358,149 @@ yyreduce:
   case 2: /* program: globals  */
 #line 32 "calc.y"
                   {
-    Node *program = (yyvsp[0].node);
+    Node *program = new Program();
+    program->append((yyvsp[0].node));
+
     // aqui vai a analise semantica
+    printf_tree(program);
 }
-#line 1365 "calc.tab.c"
+#line 1368 "calc.tab.c"
     break;
 
   case 3: /* globals: globals global  */
-#line 37 "calc.y"
+#line 40 "calc.y"
                              {
     (yyvsp[-1].node)->append((yyvsp[0].node));
     (yyval.node) = (yyvsp[-1].node);
 }
-#line 1374 "calc.tab.c"
+#line 1377 "calc.tab.c"
     break;
 
   case 4: /* globals: global  */
-#line 42 "calc.y"
+#line 45 "calc.y"
                  {
     Node *n = new Node();
     n->append((yyvsp[0].node));
     (yyval.node) = n;
 }
-#line 1384 "calc.tab.c"
+#line 1387 "calc.tab.c"
     break;
 
   case 5: /* global: TOK_IDENT '=' expr ';'  */
-#line 48 "calc.y"
+#line 51 "calc.y"
                                 {
     (yyval.node) = new Variable((yyvsp[-3].str), (yyvsp[-1].node));
 }
-#line 1392 "calc.tab.c"
+#line 1395 "calc.tab.c"
     break;
 
   case 6: /* global: TOK_PRINT TOK_IDENT ';'  */
-#line 52 "calc.y"
+#line 55 "calc.y"
                                  {
     Ident *id = new Ident((yyvsp[-1].str));
     (yyval.node) = new Print(id);
 }
-#line 1401 "calc.tab.c"
+#line 1404 "calc.tab.c"
     break;
 
   case 7: /* expr: expr '+' term  */
-#line 57 "calc.y"
+#line 60 "calc.y"
                          {
     (yyval.node) = new BinaryOp((yyvsp[-2].node), (yyvsp[0].node), '+');
 }
-#line 1409 "calc.tab.c"
+#line 1412 "calc.tab.c"
     break;
 
   case 8: /* expr: expr '-' term  */
-#line 61 "calc.y"
+#line 64 "calc.y"
                          {
     (yyval.node) = new BinaryOp((yyvsp[-2].node), (yyvsp[0].node), '-');
 }
-#line 1417 "calc.tab.c"
+#line 1420 "calc.tab.c"
     break;
 
   case 9: /* expr: term  */
-#line 65 "calc.y"
+#line 68 "calc.y"
             {
     (yyval.node) = (yyvsp[0].node);
 }
-#line 1425 "calc.tab.c"
+#line 1428 "calc.tab.c"
     break;
 
   case 10: /* term: term '*' factor  */
-#line 69 "calc.y"
+#line 72 "calc.y"
                            {
     (yyval.node) = new BinaryOp((yyvsp[-2].node), (yyvsp[0].node), '*');
 }
-#line 1433 "calc.tab.c"
+#line 1436 "calc.tab.c"
     break;
 
   case 11: /* term: term '/' factor  */
-#line 73 "calc.y"
+#line 76 "calc.y"
                            {
     (yyval.node) = new BinaryOp((yyvsp[-2].node), (yyvsp[0].node), '/');
 }
-#line 1441 "calc.tab.c"
+#line 1444 "calc.tab.c"
     break;
 
   case 12: /* term: factor  */
-#line 77 "calc.y"
+#line 80 "calc.y"
               {
     (yyval.node) = (yyvsp[0].node);
 }
-#line 1449 "calc.tab.c"
+#line 1452 "calc.tab.c"
     break;
 
   case 13: /* factor: '(' expr ')'  */
-#line 81 "calc.y"
+#line 84 "calc.y"
                       {
     (yyval.node) = (yyvsp[-1].node);
 }
-#line 1457 "calc.tab.c"
+#line 1460 "calc.tab.c"
     break;
 
   case 14: /* factor: TOK_IDENT  */
-#line 85 "calc.y"
+#line 88 "calc.y"
                         {
     (yyval.node) = new Ident((yyvsp[0].str));
 }
-#line 1465 "calc.tab.c"
+#line 1468 "calc.tab.c"
     break;
 
   case 15: /* factor: TOK_INT  */
-#line 89 "calc.y"
+#line 92 "calc.y"
                       {
     (yyval.node) = new Integer((yyvsp[0].itg));
 }
-#line 1473 "calc.tab.c"
+#line 1476 "calc.tab.c"
     break;
 
   case 16: /* factor: TOK_FLOAT  */
-#line 93 "calc.y"
+#line 96 "calc.y"
                         {
     (yyval.node) = new Float((yyvsp[0].flt));
 }
-#line 1481 "calc.tab.c"
+#line 1484 "calc.tab.c"
     break;
 
   case 17: /* factor: unary  */
-#line 97 "calc.y"
+#line 100 "calc.y"
                   {
     (yyval.node) = (yyvsp[0].node);
 }
-#line 1489 "calc.tab.c"
+#line 1492 "calc.tab.c"
     break;
 
   case 18: /* unary: '-' factor  */
-#line 101 "calc.y"
+#line 104 "calc.y"
                       {
     (yyval.node) = new Unary((yyvsp[0].node), '-');
 }
-#line 1497 "calc.tab.c"
+#line 1500 "calc.tab.c"
     break;
 
 
-#line 1501 "calc.tab.c"
+#line 1504 "calc.tab.c"
 
       default: break;
     }
@@ -1721,5 +1724,5 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 105 "calc.y"
+#line 108 "calc.y"
 

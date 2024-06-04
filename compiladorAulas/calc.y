@@ -30,8 +30,11 @@ int yylex(void);
 %%
 
 program : globals {
-    Node *program = $globals;
+    Node *program = new Program();
+    program->append($globals);
+
     // aqui vai a analise semantica
+    printf_tree(program);
 }
 
 globals : globals[gg] global {

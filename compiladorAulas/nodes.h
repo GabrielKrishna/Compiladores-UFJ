@@ -11,10 +11,20 @@ protected:
 
 public:
     virtual string toStr() {
-        return "node";
+        return "stmts";
     }
     void append(Node *n) {
         children.push_back(n);
+    }
+    vector<Node*>& getChildren() {
+        return children;
+    }
+};
+
+class Program : public Node {
+public:
+    virtual string toStr() override {
+        return "Program";
     }
 };
 
@@ -65,10 +75,11 @@ public:
     Variable(const string n, Node *v) {
         name = n;
         value = v;
+        children.push_back(v);
     }
 
     virtual string toStr() override {
-        return name;
+        return name + "=";
     }
 };
 
@@ -81,6 +92,7 @@ public:
     Unary(Node *v, char op) {
         value = v;
         operation = op;
+        children.push_back(v);
     }
 
     virtual string toStr() override {
@@ -101,6 +113,8 @@ public:
         value1 = v1;
         value2 = v2;
         operation = op;
+        children.push_back(v1);
+        children.push_back(v2);
     }
 
     virtual string toStr() override {
@@ -117,9 +131,28 @@ protected:
 public:
     Print(Node *v) {
         value = v;
+        children.push_back(v);
     }
 
     virtual string toStr() {
         return "print";
     }
 };
+
+void printf_tree_recursive(Node *noh) {
+    for(Node *c : noh->getChildren()) {
+        printf_tree_recursive(c);
+    }
+    cout << "N" << (long int)noh << "[label=\"" << noh->toStr() << "\"];" << endl;
+
+    //imprime a lgacao com os filhos
+    for(Node *c : noh->getChildren()) {
+        cout << "N" << (long int)noh << "--" << "N" << (long int)c << ";" << endl;
+    }
+}
+
+void printf_tree(Node *root) {
+    cout << "graph {" << endl;
+    printf_tree_recursive(root);
+    cout << "}" << endl;
+}
