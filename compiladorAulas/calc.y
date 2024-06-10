@@ -3,6 +3,7 @@
 
 int yyerror(const char *s);
 int yylex(void);
+int errorcount = 0;
 %}
 
 %define parse.error verbose
@@ -34,7 +35,13 @@ program : globals {
     program->append($globals);
 
     // aqui vai a analise semantica
-    printf_tree(program);
+    CheckVarDecl cvd;
+    cvd.check(program);
+
+    if (errorcount > 0 )
+        cout << errorcount <<" error(s) found." << endl;
+    else
+        printf_tree(program);
 }
 
 globals : globals[gg] global {

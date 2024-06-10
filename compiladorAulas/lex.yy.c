@@ -1894,8 +1894,11 @@ int yywrap(){
   return 1;
 }
 
+extern int errorcount;
+
 int yyerror(const char *s) {
-  printf("Erro de sintaxe a linha %d: %s\n", yylineno, s);
+  printf("Syntax error teste1.txt:%d: 0 %s\n", yylineno, s);
+  errorcount++;
   return 1;
 }
 
