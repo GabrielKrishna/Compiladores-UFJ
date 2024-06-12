@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+char *build_file_name;
+bool force_print_tree = false;
 class Node;
 #include "calc.tab.h"
 
@@ -57,7 +59,7 @@ int yywrap(){
 extern int errorcount;
 
 int yyerror(const char *s) {
-  printf("Syntax error teste1.txt:%d: 0 %s\n", yylineno, s);
+  printf("%s:%d:0 %s\n", build_file_name, yylineno, s);
   errorcount++;
   return 1;
 }
@@ -69,9 +71,17 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  yyin = fopen(argv[1], "r");
+  int build_file_id = 1;
+
+if (strcmp(argv[1], "-f") == 0) {
+  force_print_tree = true;
+  build_file_id++;
+}
+
+  build_file_name = argv[build_file_id];
+  yyin = fopen(build_file_name, "r");
   if (yyin == NULL){
-    printf("Não foi possível abrir o arquivo %s.\n, argv[1]");
+    printf("Não foi possível abrir o arquivo %s.\n, build_file_name");
     return 1;
   }
 
