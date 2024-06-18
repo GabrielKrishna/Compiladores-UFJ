@@ -8,6 +8,7 @@ extern bool force_print_tree;
 %}
 
 %define parse.error verbose
+%define parse.trace
 
 //isso vira o yylval(e uma struct)
 %union {
@@ -26,6 +27,11 @@ extern bool force_print_tree;
 %type<itg> TOK_INT
 %type<flt> TOK_FLOAT
 %type<node> global globals expr term factor unary
+
+%printer { fprintf(yyo, "%s", $$); } <str>
+%printer { fprintf(yyo, "%d", $$); } <itg>
+%printer { fprintf(yyo, "%lf", $$); } <flt>
+%printer { fprintf(yyo, "%s", $$->toDebug().c_str()); } <node>
 
 %start program
 

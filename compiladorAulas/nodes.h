@@ -24,6 +24,9 @@ public:
     virtual string toStr() {
         return "stmts";
     }
+    virtual string toDebug(){
+        return toStr();
+    }
     void append(Node *n) {
         children.push_back(n);
     }
@@ -100,6 +103,10 @@ public:
     virtual string toStr() override {
         return name + "=";
     }
+
+    virtual string toDebug() override {
+        return name + "=" + value->toDebug();
+    }
 };
 
 class Unary : public Node {
@@ -118,6 +125,10 @@ public:
         string aux;
         aux.push_back(operation);
         return aux;
+    }
+
+    virtual string toDebug() override {
+        return toStr() + value->toDebug();
     }
 };
 
@@ -141,6 +152,10 @@ public:
         aux.push_back(operation);
         return aux;
     }
+
+    virtual string toDebug() override {
+        return value1->toDebug() + toStr() + value2->toDebug();
+    }
 };
 
 class Print : public Node {
@@ -153,8 +168,12 @@ public:
         children.push_back(v);
     }
 
-    virtual string toStr() {
+    virtual string toStr() override {
         return "print";
+    }
+
+    virtual string toDebug() override {
+        return toStr() + " " + value->toDebug();
     }
 };
 
