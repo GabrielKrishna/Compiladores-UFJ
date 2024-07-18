@@ -1,4 +1,0 @@
-//Condicional if sem passar parametros
-pumerettohero(){
-    avishta("a diferente de 5");
-}

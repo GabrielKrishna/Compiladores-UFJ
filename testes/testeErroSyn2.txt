@@ -1,0 +1,4 @@
+//Valor para variavel é uma função condicional
+
+a = 25;
+variavel = pumerettohero(a){};

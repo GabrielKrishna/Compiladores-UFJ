@@ -41,9 +41,9 @@ program : globals {
         CheckVarDecl cvd;
         cvd.check(program);
 
-        if (errorcount > 0 )
-                cout << errorcount <<" error(s) found." << endl;
-        if (force_print_tree || errorcount == 0 )
+        if (error_count > 0 )
+                cout << error_count <<" error(s) found." << endl;
+        if (force_print_tree || error_count == 0 )
                 printf_tree(program);
                         
         }

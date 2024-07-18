@@ -7,7 +7,7 @@ using namespace std;
 
 extern char *build_file_name;
 extern int yylineno;
-int errorcount = 0;
+int error_count = 0;
 
 class Node {
 protected:
@@ -360,7 +360,7 @@ public:
                 symbolsFloat.count(ident->getName()) <= 0 &&
                 symbolsBol.count(ident->getName()) <= 0 &&
                 symbolsStr.count(ident->getName()) <= 0) {
-                errorcount++;
+                error_count++;
                 cout << build_file_name
                      << " "
                      << ident->getLineNo()
@@ -509,7 +509,7 @@ public:
         Ident *ident = dynamic_cast<Ident *>(noh);
         if (ident) {
             if (symbolsStr.count(ident->getName()) == 1) {
-                errorcount++;
+                error_count++;
                 cout << build_file_name
                      << " "
                      << ident->getLineNo()
@@ -522,7 +522,7 @@ public:
 
         String *p = dynamic_cast<String *>(noh);
         if (p) {
-            errorcount++;
+            error_count++;
             cout << build_file_name
                  << " "
                  << p->getLineNo()
@@ -661,7 +661,7 @@ public:
         BinaryOp *ob = dynamic_cast<BinaryOp *>(noh);
         if (ob) {
             if (CheckBinaryOp(ob->getNode1()) != CheckBinaryOp(ob->getNode2())) {
-                errorcount++;
+                error_count++;
                 cout << build_file_name
                      << " "
                      << ob->getLineNo()

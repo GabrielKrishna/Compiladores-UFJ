@@ -1,2 +1,0 @@
-//Tentar escanear algo que não e um tipo de variavel
-scan_variable = puyakkiriguo(algo);

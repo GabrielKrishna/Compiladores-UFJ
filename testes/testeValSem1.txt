@@ -1,0 +1,4 @@
+//Printar uma variavel sem antes defini-la
+
+avishta varInt;
+varInt = 10;

@@ -1,0 +1,10 @@
+//Uso apenas de uma variável do tipo string em uma condicional
+
+string="verdadeiro";
+pumerettohero(string){
+   avishta "string";
+}
+
+tetoraputo(string){
+   avishta "string";
+}

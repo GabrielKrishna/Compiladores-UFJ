@@ -1,37 +1,18 @@
-// comentario
-
-b = 10.1;
-a = 1;
-c = 2 * (9 *10);
-a10 = a + 10;
-acasd = 1;
-b = 1;
-c = a + b;
-c = 9;
+a = 10.5;
+b = 10.5;
+c = 10.0;
 avishta a;
-avishta "palavras";
-avishta (1 + 2 + 2);
-avishta (1 * 2 / 2);
-a = hotto;
-a = uotoku;
+avishta "string de caracteres";
 
-pumerettohero(a<b) {
-a = 10;
-a = 20;
-c = hotto;
+pumerettohero(a==b) {
+    avishta a;
+    avishta b;
+    avishta "São iguais";
 }
-    pumerettohero(c<10) {
-        avishta "c é menor que 10";
-        c = c - 1;
-    }
-    tsutenonipiro {
-        avishta "c não é menor que 10";
-    }
-
-tetoraputo([[a==c] || [a<b]]) {
-    avishta "Olá Mundo! 1 ";
+tsutenonipiro {
+    avishta "São diferentes";
 }
 
-tetoraputo([c>5] && [[c<10] || [c<39]]) {
-    a = 10;
+tetoraputo([[a==c] && [b!=c]]) {
+    avishta "a é igual a b, mas são diferentes de c";
 }

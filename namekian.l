@@ -2,19 +2,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *build_file_name;
 bool force_print_tree = false;
+char * build_file_name;
 class Node;
 #include "namekian.tab.h"
-
 int yyerror(const char *s);
-
 %}
 
 %option yylineno
 
 %%
-
 [ \t\r\n] {}
 "//".*\n {}
 
@@ -69,51 +66,49 @@ int yyerror(const char *s);
 
 \"([^\\\"]|\\.)*\" {return TOK_STRING;}
 
-. {
-    printf("Símbolo não reconhecido %c\n", yytext[0]);
-  }
+
+.   {printf("Simbolo não reconhecido! %c\n",yytext[0]);}
 
 %%
-
 int yywrap(){
-  return 1;
+    return 1;
 }
 
-extern int errorcount;
-extern int yydebug;
-
-int yyerror(const char *s) {
-  printf("%s:%d:0 %s\n", build_file_name, yylineno, s);
-  errorcount++;
-  return 1;
+extern int error_count;
+int yyerror(const char *s){
+    printf("%s:%d:0: %s\n",build_file_name, yylineno, s);
+    error_count++;
+    return 1;
 }
 
 int main(int argc, char *argv[]){
+    if(argc <= 1){
+        printf("Sintaxe: %s nome_do_programa\n",argv[0]);
+        return 1;
+    }
+        
+    //Parametros adicionais
+    for(int i=1;i<argc;i++){
+        if(strcmp(argv[i],"-d")==0){
+            yydebug=1;
+        }
+        
+        if (strcmp(argv[i],"-f")==0){
+            force_print_tree = true;
+        }
+    }
 
-  if(argc <= 1){
-    printf("Sintaxe: %s nome_do_programa\n", argv[0]);
-    return 1;
-  }
+    build_file_name = argv[1];
+    yyin = fopen(argv[1],"r");
+    if(yyin == NULL){
+        printf("Não foi possivel abrir o arquivo %s.\n",build_file_name);
+        return 1;
+    }
+    
+    yyparse();
 
-  int build_file_id = 1;
+    if(yyin)
+        fclose(yyin);
 
-if (strcmp(argv[1], "-f") == 0) {
-  force_print_tree = true;
-  build_file_id++;
-}
-
-  build_file_name = argv[build_file_id];
-  yyin = fopen(build_file_name, "r");
-  if (yyin == NULL){
-    printf("Não foi possível abrir o arquivo %s.\n, build_file_name");
-    return 1;
-  }
-
-  yydebug = 1;
-  yyparse();
-
-  if (yyin)
-    fclose(yyin);
-
-  return 0;
+    return 0;
 }

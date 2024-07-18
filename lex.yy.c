@@ -531,15 +531,13 @@ char *yytext;
 #include <stdio.h>
 #include <stdlib.h>
 
-char *build_file_name;
 bool force_print_tree = false;
+char * build_file_name;
 class Node;
 #include "namekian.tab.h"
-
 int yyerror(const char *s);
-
-#line 541 "lex.yy.c"
-#line 542 "lex.yy.c"
+#line 539 "lex.yy.c"
+#line 540 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -756,10 +754,9 @@ YY_DECL
 		}
 
 	{
-#line 16 "namekian.l"
+#line 14 "namekian.l"
 
-
-#line 762 "lex.yy.c"
+#line 759 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -829,158 +826,158 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 18 "namekian.l"
+#line 15 "namekian.l"
 {}
 	YY_BREAK
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 19 "namekian.l"
+#line 16 "namekian.l"
 {}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 21 "namekian.l"
+#line 18 "namekian.l"
 {return TOK_PRINT;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 22 "namekian.l"
+#line 19 "namekian.l"
 {return TOK_IF;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 23 "namekian.l"
+#line 20 "namekian.l"
 {return TOK_ELSE;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 24 "namekian.l"
+#line 21 "namekian.l"
 {return TOK_LOOP;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 26 "namekian.l"
+#line 23 "namekian.l"
 {return TOK_AND;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 27 "namekian.l"
+#line 24 "namekian.l"
 {return TOK_OR;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 28 "namekian.l"
+#line 25 "namekian.l"
 {return '!';}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 30 "namekian.l"
+#line 27 "namekian.l"
 {return '=';}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 31 "namekian.l"
+#line 28 "namekian.l"
 {return '<';}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 32 "namekian.l"
+#line 29 "namekian.l"
 {return '>';}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 33 "namekian.l"
+#line 30 "namekian.l"
 {return TOK_LESSEQUAL;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 34 "namekian.l"
+#line 31 "namekian.l"
 {return TOK_GREATEREQUAL;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 35 "namekian.l"
+#line 32 "namekian.l"
 {return TOK_EQUAL;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 36 "namekian.l"
+#line 33 "namekian.l"
 {return TOK_DIFF;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 38 "namekian.l"
+#line 35 "namekian.l"
 {return '+';}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 39 "namekian.l"
+#line 36 "namekian.l"
 {return '-';}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 40 "namekian.l"
+#line 37 "namekian.l"
 {return '*';}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 41 "namekian.l"
+#line 38 "namekian.l"
 {return '/';}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 42 "namekian.l"
+#line 39 "namekian.l"
 {return '%';}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 44 "namekian.l"
+#line 41 "namekian.l"
 {return '(';}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 45 "namekian.l"
+#line 42 "namekian.l"
 {return ')';}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 46 "namekian.l"
+#line 43 "namekian.l"
 {return '{';}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 47 "namekian.l"
+#line 44 "namekian.l"
 {return '}';}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 48 "namekian.l"
+#line 45 "namekian.l"
 {return '[';}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 49 "namekian.l"
+#line 46 "namekian.l"
 {return ']';}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 50 "namekian.l"
+#line 47 "namekian.l"
 {return ';';}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 52 "namekian.l"
+#line 49 "namekian.l"
 {return TOK_TRUE;}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 53 "namekian.l"
+#line 50 "namekian.l"
 {return TOK_FALSE;}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 55 "namekian.l"
+#line 52 "namekian.l"
 {
   yylval.str = strndup(yytext, yyleng);
   return TOK_IDENT;
@@ -988,7 +985,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 60 "namekian.l"
+#line 57 "namekian.l"
 {
     yylval.flt = atof(yytext);
   return TOK_FLOAT;
@@ -996,7 +993,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 65 "namekian.l"
+#line 62 "namekian.l"
 {
   yylval.itg = atoi(yytext);
   return TOK_INT;
@@ -1005,22 +1002,20 @@ YY_RULE_SETUP
 case 34:
 /* rule 34 can match eol */
 YY_RULE_SETUP
-#line 70 "namekian.l"
+#line 67 "namekian.l"
 {return TOK_STRING;}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 72 "namekian.l"
-{
-    printf("Símbolo não reconhecido %c\n", yytext[0]);
-  }
+#line 70 "namekian.l"
+{printf("Simbolo não reconhecido! %c\n",yytext[0]);}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 76 "namekian.l"
+#line 72 "namekian.l"
 ECHO;
 	YY_BREAK
-#line 1023 "lex.yy.c"
+#line 1018 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2037,48 +2032,47 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 76 "namekian.l"
-
+#line 72 "namekian.l"
 
 int yywrap(){
-  return 1;
+    return 1;
 }
 
-extern int errorcount;
-extern int yydebug;
-
-int yyerror(const char *s) {
-  printf("%s:%d:0 %s\n", build_file_name, yylineno, s);
-  errorcount++;
-  return 1;
+extern int error_count;
+int yyerror(const char *s){
+    printf("%s:%d:0: %s\n",build_file_name, yylineno, s);
+    error_count++;
+    return 1;
 }
 
 int main(int argc, char *argv[]){
+    if(argc <= 1){
+        printf("Sintaxe: %s nome_do_programa\n",argv[0]);
+        return 1;
+    }
+        
+    //Parametros adicionais
+    for(int i=1;i<argc;i++){
+        if(strcmp(argv[i],"-d")==0){
+            yydebug=1;
+        }
+        
+        if (strcmp(argv[i],"-f")==0){
+            force_print_tree = true;
+        }
+    }
 
-  if(argc <= 1){
-    printf("Sintaxe: %s nome_do_programa\n", argv[0]);
-    return 1;
-  }
+    build_file_name = argv[1];
+    yyin = fopen(argv[1],"r");
+    if(yyin == NULL){
+        printf("Não foi possivel abrir o arquivo %s.\n",build_file_name);
+        return 1;
+    }
+    
+    yyparse();
 
-  int build_file_id = 1;
+    if(yyin)
+        fclose(yyin);
 
-if (strcmp(argv[1], "-f") == 0) {
-  force_print_tree = true;
-  build_file_id++;
-}
-
-  build_file_name = argv[build_file_id];
-  yyin = fopen(build_file_name, "r");
-  if (yyin == NULL){
-    printf("Não foi possível abrir o arquivo %s.\n, build_file_name");
-    return 1;
-  }
-
-  yydebug = 1;
-  yyparse();
-
-  if (yyin)
-    fclose(yyin);
-
-  return 0;
+    return 0;
 }

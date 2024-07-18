@@ -1,42 +1,22 @@
-salario = 1600.00;
-taxa_de_lucro = 1.45;
+quantidade = 1500;
+preco = 500;
+desconto = -50;
 
-ps4 = "Playstation 4";
-ps4_preco = 2765.45 * taxa_de_lucro;
+aberto = hotto;
+funcional = uotoku;
 
-ps2 = "Playstation 2";
-ps2_preco = 265.45 * taxa_de_lucro;
+tetoraputo(aberto || funcional){
+    avishta "Disponivel para compra";
+}
 
-loja_aberta = hotto;
-cliente_na_loja = uotoku;
-
-
-pumerettohero(salario>ps4_preco) {
-    avishta "Pode comprar o ";
-    avishta ps4;
-    avishta "! \n";
+pumerettohero([preco<=500] && [quantidade>1000]) {
+    avishta "Compra realizada";
 }
 tsutenonipiro {
-    pumerettohero(salario>ps2_preco) {
-        avishta "Pode Comprar o\n";
-        avishta ps2;
-        avishta "!\n";
+    pumerettohero([preco<=500] && [quantidade>=800]) {
+        avishta "Desconto aplicado";
     }
-    tsutenonipiro {
-        pumerettohero(salario==[ps4_preco || ps2_preco]) {
-            avishta "No preço certo para voce";
-        }
-        tsutenonipiro {
-            avishta "Tentaremos melhorar nosso preco!";
-        }
-    }
-}
-
-tetoraputo(loja_aberta || cliente_na_loja) {
-    pumerettohero(loja_aberta){
-        avishta "Desejados Clientes, Sejam Bem-Vindos!";
-    }
-    pumerettohero(cliente_na_loja && loja_aberta){
-        avishta "Desejados Clientes, !";
+    tsutenonipiro{
+        avishta "Compra não realizada";
     }
 }

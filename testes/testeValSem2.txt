@@ -1,0 +1,7 @@
+//Operações com tipos de dados diferentes
+
+varInt = 1;
+varFloat = 2.5;
+varBool = hotto;
+varString = "abc";
+varOp = varInt + varFloat * varBool % varString;

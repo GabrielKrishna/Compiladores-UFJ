@@ -1,0 +1,10 @@
+//Condicional If sem passagem de parametros
+
+var = 15;
+
+pumerettohero(){
+    avishta "var maior que 10";    
+}
+tsutenonipiro{
+    avishta "var menor que 10";
+}

@@ -1,23 +1,22 @@
-a = 10;
-b = 20;
-d = 0;
-c = (a - b) * d;
-c = (1 + 2 * (3 / 4));
-boleano = hotto;
+//Comentários
 
-pumerettohero(boleano){
-    avishta a;
+varInt1 = 5;
+varInt2 = 10;
+
+varOp1 = ((varInt1 + varInt2 - varInt1) * (varInt1 / varInt2)) % varInt2;
+
+varFloat1 = 7.5;
+varFloat2 = 15.5;
+
+varO2 = (varFloat1 * varFloat2) + (varFloat1 / varFloat2) % varFloat1 - 2.5;
+
+tetoraputo(1<=varInt1 && 2>=varInt2){
+    avishta "Condição satisfeita";
 }
 
-tetoraputo(1<a && 2>b){
-    avishta "Condição Verdadeira!";
-}
-
-pumerettohero(a<1 && b<10 && a!=b){
-    avishta "É válido";    
+pumerettohero(varFloat1!=varFloat2){
+    avishta "Verdadeiro";    
 }
 tsutenonipiro{
-    avishta "Não é válido";
-    a = a -1;
-    b = b -1;
+    avishta "Falso";
 }
