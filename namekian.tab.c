@@ -69,10 +69,13 @@
 /* First part of user prologue.  */
 #line 1 "namekian.y"
 
+#include "nodes.h"
+
+extern bool force_print_tree;
 int yyerror(const char *s);
 int yylex(void);
 
-#line 76 "namekian.tab.c"
+#line 79 "namekian.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -104,65 +107,48 @@ enum yysymbol_kind_t
   YYSYMBOL_YYerror = 1,                    /* error  */
   YYSYMBOL_YYUNDEF = 2,                    /* "invalid token"  */
   YYSYMBOL_TOK_IDENT = 3,                  /* TOK_IDENT  */
-  YYSYMBOL_TOK_PRINT = 4,                  /* TOK_PRINT  */
-  YYSYMBOL_TOK_SCAN = 5,                   /* TOK_SCAN  */
-  YYSYMBOL_TOK_IF = 6,                     /* TOK_IF  */
-  YYSYMBOL_TOK_ELSE = 7,                   /* TOK_ELSE  */
-  YYSYMBOL_TOK_WHILE = 8,                  /* TOK_WHILE  */
-  YYSYMBOL_TOK_BREAK = 9,                  /* TOK_BREAK  */
-  YYSYMBOL_TYPE_BOOL = 10,                 /* TYPE_BOOL  */
-  YYSYMBOL_TYPE_INT = 11,                  /* TYPE_INT  */
-  YYSYMBOL_TYPE_FLOAT = 12,                /* TYPE_FLOAT  */
-  YYSYMBOL_TYPE_CHAR = 13,                 /* TYPE_CHAR  */
-  YYSYMBOL_TYPE_STRING = 14,               /* TYPE_STRING  */
-  YYSYMBOL_TOK_AND = 15,                   /* TOK_AND  */
-  YYSYMBOL_TOK_OR = 16,                    /* TOK_OR  */
-  YYSYMBOL_TOK_LESSEQUAL = 17,             /* TOK_LESSEQUAL  */
-  YYSYMBOL_TOK_GREATEREQUAL = 18,          /* TOK_GREATEREQUAL  */
-  YYSYMBOL_TOK_EQUAL = 19,                 /* TOK_EQUAL  */
-  YYSYMBOL_TOK_DIFF = 20,                  /* TOK_DIFF  */
-  YYSYMBOL_TOK_TRUE = 21,                  /* TOK_TRUE  */
-  YYSYMBOL_TOK_FALSE = 22,                 /* TOK_FALSE  */
-  YYSYMBOL_TOK_INT = 23,                   /* TOK_INT  */
-  YYSYMBOL_TOK_FLOAT = 24,                 /* TOK_FLOAT  */
-  YYSYMBOL_TOK_CHAR = 25,                  /* TOK_CHAR  */
-  YYSYMBOL_TOK_STRING = 26,                /* TOK_STRING  */
-  YYSYMBOL_27_ = 27,                       /* '='  */
-  YYSYMBOL_28_ = 28,                       /* ';'  */
-  YYSYMBOL_29_ = 29,                       /* '('  */
-  YYSYMBOL_30_ = 30,                       /* ')'  */
-  YYSYMBOL_31_ = 31,                       /* '+'  */
-  YYSYMBOL_32_ = 32,                       /* '-'  */
-  YYSYMBOL_33_ = 33,                       /* '*'  */
-  YYSYMBOL_34_ = 34,                       /* '/'  */
-  YYSYMBOL_35_ = 35,                       /* '{'  */
-  YYSYMBOL_36_ = 36,                       /* '}'  */
-  YYSYMBOL_37_ = 37,                       /* '!'  */
-  YYSYMBOL_38_ = 38,                       /* '>'  */
-  YYSYMBOL_39_ = 39,                       /* '<'  */
-  YYSYMBOL_YYACCEPT = 40,                  /* $accept  */
-  YYSYMBOL_program = 41,                   /* program  */
-  YYSYMBOL_globals = 42,                   /* globals  */
-  YYSYMBOL_global = 43,                    /* global  */
-  YYSYMBOL_declaration = 44,               /* declaration  */
-  YYSYMBOL_simple_declaration = 45,        /* simple_declaration  */
-  YYSYMBOL_atribuition = 46,               /* atribuition  */
-  YYSYMBOL_value = 47,                     /* value  */
-  YYSYMBOL_scan = 48,                      /* scan  */
-  YYSYMBOL_type = 49,                      /* type  */
-  YYSYMBOL_num_expression = 50,            /* num_expression  */
-  YYSYMBOL_num_term = 51,                  /* num_term  */
-  YYSYMBOL_num_factor = 52,                /* num_factor  */
-  YYSYMBOL_unary = 53,                     /* unary  */
-  YYSYMBOL_print = 54,                     /* print  */
-  YYSYMBOL_selection = 55,                 /* selection  */
-  YYSYMBOL_condition = 56,                 /* condition  */
-  YYSYMBOL_bool = 57,                      /* bool  */
-  YYSYMBOL_not = 58,                       /* not  */
-  YYSYMBOL_relational_operator = 59,       /* relational_operator  */
-  YYSYMBOL_logic_operator = 60,            /* logic_operator  */
-  YYSYMBOL_while = 61,                     /* while  */
-  YYSYMBOL_break = 62                      /* break  */
+  YYSYMBOL_TOK_INT = 4,                    /* TOK_INT  */
+  YYSYMBOL_TOK_FLOAT = 5,                  /* TOK_FLOAT  */
+  YYSYMBOL_TOK_STRING = 6,                 /* TOK_STRING  */
+  YYSYMBOL_TOK_TRUE = 7,                   /* TOK_TRUE  */
+  YYSYMBOL_TOK_FALSE = 8,                  /* TOK_FALSE  */
+  YYSYMBOL_TOK_PRINT = 9,                  /* TOK_PRINT  */
+  YYSYMBOL_TOK_LOOP = 10,                  /* TOK_LOOP  */
+  YYSYMBOL_TOK_IF = 11,                    /* TOK_IF  */
+  YYSYMBOL_TOK_ELSE = 12,                  /* TOK_ELSE  */
+  YYSYMBOL_TOK_AND = 13,                   /* TOK_AND  */
+  YYSYMBOL_TOK_OR = 14,                    /* TOK_OR  */
+  YYSYMBOL_TOK_EQUAL = 15,                 /* TOK_EQUAL  */
+  YYSYMBOL_TOK_DIFF = 16,                  /* TOK_DIFF  */
+  YYSYMBOL_TOK_GREATEREQUAL = 17,          /* TOK_GREATEREQUAL  */
+  YYSYMBOL_TOK_LESSEQUAL = 18,             /* TOK_LESSEQUAL  */
+  YYSYMBOL_19_ = 19,                       /* '='  */
+  YYSYMBOL_20_ = 20,                       /* ';'  */
+  YYSYMBOL_21_ = 21,                       /* '('  */
+  YYSYMBOL_22_ = 22,                       /* ')'  */
+  YYSYMBOL_23_ = 23,                       /* '{'  */
+  YYSYMBOL_24_ = 24,                       /* '}'  */
+  YYSYMBOL_25_ = 25,                       /* '<'  */
+  YYSYMBOL_26_ = 26,                       /* '>'  */
+  YYSYMBOL_27_ = 27,                       /* '['  */
+  YYSYMBOL_28_ = 28,                       /* ']'  */
+  YYSYMBOL_29_ = 29,                       /* '!'  */
+  YYSYMBOL_30_ = 30,                       /* '+'  */
+  YYSYMBOL_31_ = 31,                       /* '-'  */
+  YYSYMBOL_32_ = 32,                       /* '*'  */
+  YYSYMBOL_33_ = 33,                       /* '/'  */
+  YYSYMBOL_34_ = 34,                       /* '%'  */
+  YYSYMBOL_YYACCEPT = 35,                  /* $accept  */
+  YYSYMBOL_program = 36,                   /* program  */
+  YYSYMBOL_globals = 37,                   /* globals  */
+  YYSYMBOL_global = 38,                    /* global  */
+  YYSYMBOL_logic_expresion = 39,           /* logic_expresion  */
+  YYSYMBOL_logic_term = 40,                /* logic_term  */
+  YYSYMBOL_logic_factor = 41,              /* logic_factor  */
+  YYSYMBOL_num_expr = 42,                  /* num_expr  */
+  YYSYMBOL_num_term = 43,                  /* num_term  */
+  YYSYMBOL_num_factor = 44,                /* num_factor  */
+  YYSYMBOL_unary = 45                      /* unary  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -279,7 +265,7 @@ typedef int yytype_uint16;
 
 
 /* Stored state numbers (used for stacks). */
-typedef yytype_uint8 yy_state_t;
+typedef yytype_int8 yy_state_t;
 
 /* State numbers in computations.  */
 typedef int yy_state_fast_t;
@@ -488,21 +474,21 @@ union yyalloc
 #endif /* !YYCOPY_NEEDED */
 
 /* YYFINAL -- State number of the termination state.  */
-#define YYFINAL  31
+#define YYFINAL  24
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   168
+#define YYLAST   144
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  40
+#define YYNTOKENS  35
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  23
+#define YYNNTS  11
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  66
+#define YYNRULES  41
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  132
+#define YYNSTATES  85
 
 /* YYMAXUTOK -- Last valid token kind.  */
-#define YYMAXUTOK   281
+#define YYMAXUTOK   273
 
 
 /* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
@@ -519,16 +505,16 @@ static const yytype_int8 yytranslate[] =
        0,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,    37,     2,     2,     2,     2,     2,     2,
-      29,    30,    33,    31,     2,    32,     2,    34,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,     2,    28,
-      39,    27,    38,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,    29,     2,     2,     2,    34,     2,     2,
+      21,    22,    32,    30,     2,    31,     2,    33,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,    20,
+      25,    19,    26,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,    27,     2,    28,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,    35,     2,    36,     2,     2,     2,     2,
+       2,     2,     2,    23,     2,    24,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -543,21 +529,18 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
        5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
-      15,    16,    17,    18,    19,    20,    21,    22,    23,    24,
-      25,    26
+      15,    16,    17,    18
 };
 
 #if YYDEBUG
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    18,    18,    21,    22,    26,    27,    28,    29,    30,
-      31,    35,    36,    37,    38,    39,    40,    44,    45,    46,
-      47,    48,    52,    53,    57,    58,    59,    63,    67,    68,
-      69,    70,    71,    75,    76,    77,    81,    82,    83,    87,
-      88,    89,    90,    91,    95,    99,   103,   104,   105,   109,
-     110,   111,   112,   113,   117,   118,   122,   126,   127,   128,
-     129,   130,   131,   135,   136,   140,   144
+       0,    36,    36,    51,    55,    61,    64,    67,    70,    73,
+      76,    79,    83,    86,    89,    92,    95,    98,   101,   105,
+     108,   111,   115,   118,   121,   125,   128,   131,   135,   138,
+     141,   144,   148,   151,   154,   157,   160,   163,   166,   169,
+     173,   176
 };
 #endif
 
@@ -573,17 +556,14 @@ static const char *yysymbol_name (yysymbol_kind_t yysymbol) YY_ATTRIBUTE_UNUSED;
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "\"end of file\"", "error", "\"invalid token\"", "TOK_IDENT",
-  "TOK_PRINT", "TOK_SCAN", "TOK_IF", "TOK_ELSE", "TOK_WHILE", "TOK_BREAK",
-  "TYPE_BOOL", "TYPE_INT", "TYPE_FLOAT", "TYPE_CHAR", "TYPE_STRING",
-  "TOK_AND", "TOK_OR", "TOK_LESSEQUAL", "TOK_GREATEREQUAL", "TOK_EQUAL",
-  "TOK_DIFF", "TOK_TRUE", "TOK_FALSE", "TOK_INT", "TOK_FLOAT", "TOK_CHAR",
-  "TOK_STRING", "'='", "';'", "'('", "')'", "'+'", "'-'", "'*'", "'/'",
-  "'{'", "'}'", "'!'", "'>'", "'<'", "$accept", "program", "globals",
-  "global", "declaration", "simple_declaration", "atribuition", "value",
-  "scan", "type", "num_expression", "num_term", "num_factor", "unary",
-  "print", "selection", "condition", "bool", "not", "relational_operator",
-  "logic_operator", "while", "break", YY_NULLPTR
+  "\"end of file\"", "error", "\"invalid token\"", "TOK_IDENT", "TOK_INT",
+  "TOK_FLOAT", "TOK_STRING", "TOK_TRUE", "TOK_FALSE", "TOK_PRINT",
+  "TOK_LOOP", "TOK_IF", "TOK_ELSE", "TOK_AND", "TOK_OR", "TOK_EQUAL",
+  "TOK_DIFF", "TOK_GREATEREQUAL", "TOK_LESSEQUAL", "'='", "';'", "'('",
+  "')'", "'{'", "'}'", "'<'", "'>'", "'['", "']'", "'!'", "'+'", "'-'",
+  "'*'", "'/'", "'%'", "$accept", "program", "globals", "global",
+  "logic_expresion", "logic_term", "logic_factor", "num_expr", "num_term",
+  "num_factor", "unary", YY_NULLPTR
 };
 
 static const char *
@@ -593,34 +573,29 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-93)
+#define YYPACT_NINF (-52)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
 
-#define YYTABLE_NINF (-1)
+#define YYTABLE_NINF (-3)
 
 #define yytable_value_is_error(Yyn) \
   0
 
 /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
    STATE-NUM.  */
-static const yytype_int16 yypact[] =
+static const yytype_int8 yypact[] =
 {
-     116,   -17,   -24,   -10,    15,    14,    53,    57,    71,    77,
-     118,    82,   116,   -93,   -93,   -93,   -93,   -93,   -93,   -93,
-     -93,    52,    76,     1,     1,   -93,    -1,     4,   104,   106,
-     108,   -93,   -93,   -93,    94,   -93,   -93,   -93,   -93,    80,
-      80,   109,   119,    54,    73,   -93,   -93,   114,   -93,   -93,
-       1,   120,    54,    78,   115,   -93,   -93,   121,   117,   -93,
-     123,   -93,   124,   -93,   127,   -93,   128,   -93,    79,    83,
-     -93,   -93,   -93,    80,    80,    80,    80,   122,    83,   125,
-       1,   -93,   -93,   -93,   -93,   -93,   -93,    80,   126,   129,
-     130,   131,   132,   134,   135,   -93,   -93,   -93,   -93,   -93,
-     136,   -93,    73,    73,   -93,   -93,   -93,   -93,   -93,     1,
-     137,   -93,   116,   116,   -93,   -93,   -93,   -93,   -93,   -93,
-     138,   -93,     3,    37,   -93,   146,   -93,     2,   116,   -93,
-      58,   -93
+      83,     2,    13,     6,     4,    17,    47,   126,   -52,   -52,
+       6,   -52,   -52,   -52,   -52,   -52,   -52,     6,     6,     6,
+      30,   -52,    -1,    -1,   -52,   -52,    25,    29,   -52,    38,
+     -52,   -52,   -52,    -1,    39,    93,     5,   -52,   -52,   106,
+     -52,     6,     6,     6,     6,     6,   -52,    73,    -1,    -1,
+      -1,    -1,    -1,    51,    -1,    -1,    -1,    -1,    54,    29,
+      29,   -52,   -52,   -52,   -52,    88,     5,     5,     5,     5,
+      83,     5,     5,   -52,   -52,    83,   -52,    43,    48,   -52,
+      66,    56,    83,    72,   -52
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -628,125 +603,105 @@ static const yytype_int16 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
-       0,     0,     2,     4,     5,    16,     6,     7,     8,     9,
-      10,     0,     0,     0,     0,    66,     0,     0,     0,     0,
-       0,     1,     3,    40,     0,    41,    42,    25,    24,     0,
-       0,     0,     0,    26,    35,    38,    43,     0,    54,    55,
-       0,     0,    51,    38,     0,    52,    53,     0,     0,    17,
-       0,    18,     0,    19,     0,    20,     0,    21,     0,     0,
-      44,    22,    23,     0,     0,     0,     0,     0,    51,     0,
-       0,    62,    60,    57,    58,    59,    61,     0,     0,     0,
-       0,     0,     0,     0,     0,    28,    29,    30,    31,    32,
-       0,    39,    33,    34,    36,    37,    45,    63,    64,     0,
-       0,    49,     0,     0,    11,    12,    13,    14,    15,    27,
-       0,    56,     0,     0,    50,    46,    65,     0,     0,    48,
-       0,    47
+       0,    11,     0,     0,     0,     0,     0,     0,     4,    10,
+       0,    33,    34,    35,    36,    39,    38,     0,     0,     0,
+       0,    37,     0,     0,     1,     3,     0,    27,    31,     0,
+      41,    40,     6,     0,     0,     0,    18,    21,    23,     0,
+       5,     0,     0,     0,     0,     0,    32,     0,     0,     0,
+       0,     0,     0,     0,     0,     0,     0,     0,     0,    25,
+      26,    28,    29,    30,    22,     0,    12,    13,    17,    16,
+       0,    14,    15,    19,    20,     0,    24,     0,     0,     9,
+       7,     0,     0,     0,     8
 };
 
 /* YYPGOTO[NTERM-NUM].  */
-static const yytype_int16 yypgoto[] =
+static const yytype_int8 yypgoto[] =
 {
-     -93,   -93,   -92,   -12,   -93,   -93,   -93,   133,   -93,   -93,
-      13,    69,   -22,   -93,   -93,    29,   -21,    99,   -93,   -93,
-     -93,   -93,   -93
+     -52,   -52,   -51,    -7,     0,    89,   -22,    63,    23,    -2,
+     -52
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,    11,    12,    13,    14,    15,    16,    41,    42,   100,
-      52,    44,    45,    46,    17,    18,    54,    55,    56,    87,
-     109,    19,    20
+       0,     6,     7,     8,    35,    36,    37,    26,    27,    38,
+      21
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
    positive, shift that token.  If negative, reduce the rule whose
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
-static const yytype_uint8 yytable[] =
+static const yytype_int8 yytable[] =
 {
-      32,    53,    53,    57,    33,    22,     1,     2,     3,     3,
-      21,     4,     5,     6,     7,     8,     9,    10,    70,    23,
-     122,   123,    48,    49,    35,    36,    58,    59,    53,    79,
-      50,    60,    61,    40,    43,    43,   130,   128,    51,   125,
-       1,     2,    25,     3,    24,     4,     5,     6,     7,     8,
-       9,    10,    69,   104,   105,    33,    26,    34,    53,   110,
-      27,     1,     2,    78,     3,   111,     4,     5,     6,     7,
-       8,     9,    10,   126,    28,    35,    36,    37,    38,    33,
-      29,    39,    31,    33,    40,    73,    74,    53,   120,    95,
-      96,    97,    98,    99,   131,    81,    82,    83,    84,    35,
-      36,    37,    38,    35,    36,    39,    75,    76,    40,    39,
-      32,    32,    40,   101,    73,    74,    85,    86,    32,     1,
-       2,    30,     3,    68,     4,     5,     6,     7,     8,     9,
-      10,    62,    63,    64,    65,    66,    67,    71,    48,    49,
-     107,   108,   102,   103,    77,    88,    91,    72,    92,    80,
-     106,    89,    93,   127,    94,    47,   129,    90,   114,   115,
-     116,   112,   117,   118,   113,     0,   119,   121,   124
+      25,    20,    11,    12,    13,    14,    15,    16,    28,    11,
+      12,    13,    14,    15,    16,    28,    30,    31,    56,    77,
+      17,    57,     9,    39,    78,    22,    33,    17,    34,    18,
+      19,    83,    10,    47,    73,    74,    18,    19,    23,    28,
+      28,    61,    62,    63,     1,    40,     2,    24,    65,     1,
+      32,     2,     3,     4,     5,    41,    42,     3,     4,     5,
+      46,    43,    44,    45,    59,    60,    48,    79,    41,    42,
+      25,    25,    80,     1,    70,     2,    25,    75,    81,    82,
+      29,     3,     4,     5,     1,     0,     2,    49,    50,     0,
+      51,    52,     3,     4,     5,     0,    84,     0,    54,    55,
+       0,    64,    49,    50,     0,    51,    52,    49,    50,     0,
+      51,    52,     0,    54,    55,    53,    76,     0,    54,    55,
+      49,    50,     0,    51,    52,     0,    -2,     1,    58,     2,
+       0,    54,    55,     0,     0,     3,     4,     5,    66,    67,
+      68,    69,     0,    71,    72
 };
 
-static const yytype_int16 yycheck[] =
+static const yytype_int8 yycheck[] =
 {
-      12,    23,    24,    24,     3,    29,     3,     4,     6,     6,
-      27,     8,     9,    10,    11,    12,    13,    14,    40,    29,
-     112,   113,    21,    22,    23,    24,    27,    28,    50,    50,
-      29,    27,    28,    32,    21,    22,   128,    35,    37,    36,
-       3,     4,    28,     6,    29,     8,     9,    10,    11,    12,
-      13,    14,    39,    75,    76,     3,     3,     5,    80,    80,
-       3,     3,     4,    50,     6,    87,     8,     9,    10,    11,
-      12,    13,    14,    36,     3,    23,    24,    25,    26,     3,
-       3,    29,     0,     3,    32,    31,    32,   109,   109,    10,
-      11,    12,    13,    14,    36,    17,    18,    19,    20,    23,
-      24,    25,    26,    23,    24,    29,    33,    34,    32,    29,
-     122,   123,    32,    30,    31,    32,    38,    39,   130,     3,
-       4,     3,     6,    29,     8,     9,    10,    11,    12,    13,
-      14,    27,    28,    27,    28,    27,    28,    28,    21,    22,
-      15,    16,    73,    74,    30,    30,    23,    28,    24,    29,
-      28,    30,    25,     7,    26,    22,   127,    58,    28,    28,
-      28,    35,    28,    28,    35,    -1,    30,    30,    30
+       7,     3,     3,     4,     5,     6,     7,     8,    10,     3,
+       4,     5,     6,     7,     8,    17,    18,    19,    13,    70,
+      21,    16,    20,    23,    75,    21,    27,    21,    29,    30,
+      31,    82,    19,    33,    56,    57,    30,    31,    21,    41,
+      42,    43,    44,    45,     1,    20,     3,     0,    48,     1,
+      20,     3,     9,    10,    11,    30,    31,     9,    10,    11,
+      22,    32,    33,    34,    41,    42,    27,    24,    30,    31,
+      77,    78,    24,     1,    23,     3,    83,    23,    12,    23,
+      17,     9,    10,    11,     1,    -1,     3,    14,    15,    -1,
+      17,    18,     9,    10,    11,    -1,    24,    -1,    25,    26,
+      -1,    28,    14,    15,    -1,    17,    18,    14,    15,    -1,
+      17,    18,    -1,    25,    26,    22,    28,    -1,    25,    26,
+      14,    15,    -1,    17,    18,    -1,     0,     1,    22,     3,
+      -1,    25,    26,    -1,    -1,     9,    10,    11,    49,    50,
+      51,    52,    -1,    54,    55
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,     3,     4,     6,     8,     9,    10,    11,    12,    13,
-      14,    41,    42,    43,    44,    45,    46,    54,    55,    61,
-      62,    27,    29,    29,    29,    28,     3,     3,     3,     3,
-       3,     0,    43,     3,     5,    23,    24,    25,    26,    29,
-      32,    47,    48,    50,    51,    52,    53,    47,    21,    22,
-      29,    37,    50,    52,    56,    57,    58,    56,    27,    28,
-      27,    28,    27,    28,    27,    28,    27,    28,    29,    50,
-      52,    28,    28,    31,    32,    33,    34,    30,    50,    56,
-      29,    17,    18,    19,    20,    38,    39,    59,    30,    30,
-      57,    23,    24,    25,    26,    10,    11,    12,    13,    14,
-      49,    30,    51,    51,    52,    52,    28,    15,    16,    60,
-      56,    52,    35,    35,    28,    28,    28,    28,    28,    30,
-      56,    30,    42,    42,    30,    36,    36,     7,    35,    55,
-      42,    36
+       0,     1,     3,     9,    10,    11,    36,    37,    38,    20,
+      19,     3,     4,     5,     6,     7,     8,    21,    30,    31,
+      44,    45,    21,    21,     0,    38,    42,    43,    44,    42,
+      44,    44,    20,    27,    29,    39,    40,    41,    44,    39,
+      20,    30,    31,    32,    33,    34,    22,    39,    27,    14,
+      15,    17,    18,    22,    25,    26,    13,    16,    22,    43,
+      43,    44,    44,    44,    28,    39,    40,    40,    40,    40,
+      23,    40,    40,    41,    41,    23,    28,    37,    37,    24,
+      24,    12,    23,    37,    24
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    40,    41,    42,    42,    43,    43,    43,    43,    43,
-      43,    44,    44,    44,    44,    44,    44,    45,    45,    45,
-      45,    45,    46,    46,    47,    47,    47,    48,    49,    49,
-      49,    49,    49,    50,    50,    50,    51,    51,    51,    52,
-      52,    52,    52,    52,    53,    54,    55,    55,    55,    56,
-      56,    56,    56,    56,    57,    57,    58,    59,    59,    59,
-      59,    59,    59,    60,    60,    61,    62
+       0,    35,    36,    37,    37,    38,    38,    38,    38,    38,
+      38,    38,    39,    39,    39,    39,    39,    39,    39,    40,
+      40,    40,    41,    41,    41,    42,    42,    42,    43,    43,
+      43,    43,    44,    44,    44,    44,    44,    44,    44,    44,
+      45,    45
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     1,     2,     1,     1,     1,     1,     1,     1,
-       1,     5,     5,     5,     5,     5,     1,     3,     3,     3,
-       3,     3,     4,     4,     1,     1,     1,     4,     1,     1,
-       1,     1,     1,     3,     3,     1,     3,     3,     1,     3,
-       1,     1,     1,     1,     2,     5,     7,    11,     9,     3,
-       5,     1,     1,     1,     1,     1,     4,     1,     1,     1,
-       1,     1,     1,     1,     1,     7,     2
+       0,     2,     1,     2,     1,     4,     3,     7,    11,     7,
+       2,     1,     3,     3,     3,     3,     3,     3,     1,     3,
+       3,     1,     3,     1,     4,     3,     3,     1,     3,     3,
+       3,     1,     3,     1,     1,     1,     1,     1,     1,     1,
+       2,     2
 };
 
 
@@ -1479,8 +1434,342 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
+  case 2: /* program: globals  */
+#line 36 "namekian.y"
+                  {
+        Node *program = new Program();
+        program->append((yyvsp[0].node));
 
-#line 1484 "namekian.tab.c"
+        // aqui vai a analise semantica
+        CheckVarDecl cvd;
+        cvd.check(program);
+
+        if (errorcount > 0 )
+                cout << errorcount <<" error(s) found." << endl;
+        if (force_print_tree || errorcount == 0 )
+                printf_tree(program);
+                        
+        }
+#line 1454 "namekian.tab.c"
+    break;
+
+  case 3: /* globals: globals global  */
+#line 51 "namekian.y"
+                             {
+                (yyvsp[-1].node)->append((yyvsp[0].node));
+                (yyval.node) = (yyvsp[-1].node);
+        }
+#line 1463 "namekian.tab.c"
+    break;
+
+  case 4: /* globals: global  */
+#line 55 "namekian.y"
+                 {
+                Node *n = new Node();
+                n->append((yyvsp[0].node));
+                (yyval.node) = n;
+        }
+#line 1473 "namekian.tab.c"
+    break;
+
+  case 5: /* global: TOK_IDENT '=' num_expr ';'  */
+#line 61 "namekian.y"
+                                    {
+                (yyval.node) = new Variable((yyvsp[-3].str),(yyvsp[-1].node));
+        }
+#line 1481 "namekian.tab.c"
+    break;
+
+  case 6: /* global: TOK_PRINT num_factor ';'  */
+#line 64 "namekian.y"
+                                   {
+                (yyval.node) = new Print((yyvsp[-1].node));
+        }
+#line 1489 "namekian.tab.c"
+    break;
+
+  case 7: /* global: TOK_IF '(' logic_expresion ')' '{' globals '}'  */
+#line 67 "namekian.y"
+                                                           {
+                (yyval.node) = new Ifso((yyvsp[-4].node),(yyvsp[-1].node));
+        }
+#line 1497 "namekian.tab.c"
+    break;
+
+  case 8: /* global: TOK_IF '(' logic_expresion ')' '{' globals '}' TOK_ELSE '{' globals '}'  */
+#line 70 "namekian.y"
+                                                                                            {
+                (yyval.node) = new Ifnot((yyvsp[-8].node),(yyvsp[-5].node),(yyvsp[-1].node));
+        }
+#line 1505 "namekian.tab.c"
+    break;
+
+  case 9: /* global: TOK_LOOP '(' logic_expresion ')' '{' globals '}'  */
+#line 73 "namekian.y"
+                                                           {
+                (yyval.node) = new Loop((yyvsp[-4].node),(yyvsp[-1].node));
+        }
+#line 1513 "namekian.tab.c"
+    break;
+
+  case 10: /* global: error ';'  */
+#line 76 "namekian.y"
+                    {
+                (yyval.node) = new Node();
+        }
+#line 1521 "namekian.tab.c"
+    break;
+
+  case 11: /* global: error  */
+#line 79 "namekian.y"
+                {
+                (yyval.node) = new Node();
+        }
+#line 1529 "namekian.tab.c"
+    break;
+
+  case 12: /* logic_expresion: logic_expresion TOK_OR logic_term  */
+#line 83 "namekian.y"
+                                                             {
+                (yyval.node) = new BinaryOp((yyvsp[-2].node),'|',(yyvsp[0].node));
+        }
+#line 1537 "namekian.tab.c"
+    break;
+
+  case 13: /* logic_expresion: logic_expresion TOK_EQUAL logic_term  */
+#line 86 "namekian.y"
+                                                       {
+                (yyval.node) = new BinaryOp((yyvsp[-2].node),'=',(yyvsp[0].node));
+        }
+#line 1545 "namekian.tab.c"
+    break;
+
+  case 14: /* logic_expresion: logic_expresion '<' logic_term  */
+#line 89 "namekian.y"
+                                                 {
+                (yyval.node) = new BinaryOp((yyvsp[-2].node),'<',(yyvsp[0].node));
+        }
+#line 1553 "namekian.tab.c"
+    break;
+
+  case 15: /* logic_expresion: logic_expresion '>' logic_term  */
+#line 92 "namekian.y"
+                                                 {
+                (yyval.node) = new BinaryOp((yyvsp[-2].node),'>',(yyvsp[0].node));
+        }
+#line 1561 "namekian.tab.c"
+    break;
+
+  case 16: /* logic_expresion: logic_expresion TOK_LESSEQUAL logic_term  */
+#line 95 "namekian.y"
+                                                           {
+                (yyval.node) = new BinaryOp((yyvsp[-2].node),'.',(yyvsp[0].node));
+        }
+#line 1569 "namekian.tab.c"
+    break;
+
+  case 17: /* logic_expresion: logic_expresion TOK_GREATEREQUAL logic_term  */
+#line 98 "namekian.y"
+                                                              {
+                (yyval.node) = new BinaryOp((yyvsp[-2].node),'^',(yyvsp[0].node));
+        }
+#line 1577 "namekian.tab.c"
+    break;
+
+  case 18: /* logic_expresion: logic_term  */
+#line 101 "namekian.y"
+                      {
+                (yyval.node) = (yyvsp[0].node);
+        }
+#line 1585 "namekian.tab.c"
+    break;
+
+  case 19: /* logic_term: logic_term TOK_AND logic_factor  */
+#line 105 "namekian.y"
+                                                     {
+                (yyval.node) = new BinaryOp((yyvsp[-2].node),'&',(yyvsp[0].node));
+        }
+#line 1593 "namekian.tab.c"
+    break;
+
+  case 20: /* logic_term: logic_term TOK_DIFF logic_factor  */
+#line 108 "namekian.y"
+                                                   {
+                (yyval.node) = new BinaryOp((yyvsp[-2].node),'!',(yyvsp[0].node));
+        }
+#line 1601 "namekian.tab.c"
+    break;
+
+  case 21: /* logic_term: logic_factor  */
+#line 111 "namekian.y"
+                       {
+                (yyval.node) = (yyvsp[0].node);
+        }
+#line 1609 "namekian.tab.c"
+    break;
+
+  case 22: /* logic_factor: '[' logic_expresion ']'  */
+#line 115 "namekian.y"
+                                       {
+                (yyval.node) = (yyvsp[-1].node);
+        }
+#line 1617 "namekian.tab.c"
+    break;
+
+  case 23: /* logic_factor: num_factor  */
+#line 118 "namekian.y"
+                     {
+                (yyval.node) = (yyvsp[0].node);
+        }
+#line 1625 "namekian.tab.c"
+    break;
+
+  case 24: /* logic_factor: '!' '[' logic_expresion ']'  */
+#line 121 "namekian.y"
+                                          {
+                (yyval.node) = new Unary("!",(yyvsp[-1].node));
+        }
+#line 1633 "namekian.tab.c"
+    break;
+
+  case 25: /* num_expr: num_expr '+' num_term  */
+#line 125 "namekian.y"
+                                     {
+                (yyval.node) = new BinaryOp((yyvsp[-2].node),'+',(yyvsp[0].node));
+        }
+#line 1641 "namekian.tab.c"
+    break;
+
+  case 26: /* num_expr: num_expr '-' num_term  */
+#line 128 "namekian.y"
+                                     {
+                (yyval.node) = new BinaryOp((yyvsp[-2].node),'-',(yyvsp[0].node));
+        }
+#line 1649 "namekian.tab.c"
+    break;
+
+  case 27: /* num_expr: num_term  */
+#line 131 "namekian.y"
+                   {
+                (yyval.node) = (yyvsp[0].node);
+        }
+#line 1657 "namekian.tab.c"
+    break;
+
+  case 28: /* num_term: num_term '*' num_factor  */
+#line 135 "namekian.y"
+                                       {
+                (yyval.node) = new BinaryOp((yyvsp[-2].node),'*',(yyvsp[0].node));
+        }
+#line 1665 "namekian.tab.c"
+    break;
+
+  case 29: /* num_term: num_term '/' num_factor  */
+#line 138 "namekian.y"
+                                      {
+                (yyval.node) = new BinaryOp((yyvsp[-2].node),'/',(yyvsp[0].node));
+        }
+#line 1673 "namekian.tab.c"
+    break;
+
+  case 30: /* num_term: num_term '%' num_factor  */
+#line 141 "namekian.y"
+                                     {
+                (yyval.node) = new BinaryOp((yyvsp[-2].node),'%',(yyvsp[0].node));
+        }
+#line 1681 "namekian.tab.c"
+    break;
+
+  case 31: /* num_term: num_factor  */
+#line 144 "namekian.y"
+                     {
+                (yyval.node) = (yyvsp[0].node);
+        }
+#line 1689 "namekian.tab.c"
+    break;
+
+  case 32: /* num_factor: '(' num_expr ')'  */
+#line 148 "namekian.y"
+                             {
+                (yyval.node) = (yyvsp[-1].node);
+        }
+#line 1697 "namekian.tab.c"
+    break;
+
+  case 33: /* num_factor: TOK_IDENT  */
+#line 151 "namekian.y"
+                   {
+                (yyval.node) = new Ident((yyvsp[0].str));
+        }
+#line 1705 "namekian.tab.c"
+    break;
+
+  case 34: /* num_factor: TOK_INT  */
+#line 154 "namekian.y"
+                  {
+                (yyval.node) = new Integer((yyvsp[0].itg));
+        }
+#line 1713 "namekian.tab.c"
+    break;
+
+  case 35: /* num_factor: TOK_FLOAT  */
+#line 157 "namekian.y"
+                    {
+                (yyval.node) = new Float((yyvsp[0].flt));
+        }
+#line 1721 "namekian.tab.c"
+    break;
+
+  case 36: /* num_factor: TOK_STRING  */
+#line 160 "namekian.y"
+                     {
+                (yyval.node) = new String((yyvsp[0].str));
+        }
+#line 1729 "namekian.tab.c"
+    break;
+
+  case 37: /* num_factor: unary  */
+#line 163 "namekian.y"
+                {
+                (yyval.node) = (yyvsp[0].node);
+        }
+#line 1737 "namekian.tab.c"
+    break;
+
+  case 38: /* num_factor: TOK_FALSE  */
+#line 166 "namekian.y"
+                    {
+                (yyval.node) = new Bool(false);
+        }
+#line 1745 "namekian.tab.c"
+    break;
+
+  case 39: /* num_factor: TOK_TRUE  */
+#line 169 "namekian.y"
+                   {
+                (yyval.node)= new Bool(true);
+        }
+#line 1753 "namekian.tab.c"
+    break;
+
+  case 40: /* unary: '-' num_factor  */
+#line 173 "namekian.y"
+                       {
+                (yyval.node) = new Unary("-",(yyvsp[0].node));
+        }
+#line 1761 "namekian.tab.c"
+    break;
+
+  case 41: /* unary: '+' num_factor  */
+#line 176 "namekian.y"
+                         {
+                (yyval.node) = new Unary("+",(yyvsp[0].node));
+        }
+#line 1769 "namekian.tab.c"
+    break;
+
+
+#line 1773 "namekian.tab.c"
 
       default: break;
     }
@@ -1704,4 +1993,4 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 147 "namekian.y"
+#line 180 "namekian.y"

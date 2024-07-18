@@ -1,17 +1,37 @@
-//Condicionais e Loop
-pumerettohero(a != 5){
-    avishta("a diferente de 5");
+// comentario
+
+b = 10.1;
+a = 1;
+c = 2 * (9 *10);
+a10 = a + 10;
+acasd = 1;
+b = 1;
+c = a + b;
+c = 9;
+avishta a;
+avishta "palavras";
+avishta (1 + 2 + 2);
+avishta (1 * 2 / 2);
+a = hotto;
+a = uotoku;
+
+pumerettohero(a<b) {
+a = 10;
+a = 20;
+c = hotto;
+}
+    pumerettohero(c<10) {
+        avishta "c é menor que 10";
+        c = c - 1;
+    }
+    tsutenonipiro {
+        avishta "c não é menor que 10";
+    }
+
+tetoraputo([[a==c] || [a<b]]) {
+    avishta "Olá Mundo! 1 ";
 }
 
-pumerettohero((a > 5 && b < 10)){
-    avishta("a maior que 5 e b menor que 10");
-} tsutenonipiro pumerettohero((a == 5 && b == 10)){
-    avishta("a igual 5 e b igual a 10");
-} tsutenonipiro{
-    avishta("a menor que 5 e b maior que 10");
-}
-
-tetoraputo(!((a >= 5 || b <= 10))){
-    a = a + 1;
-    terumopara;
+tetoraputo([c>5] && [[c<10] || [c<39]]) {
+    a = 10;
 }

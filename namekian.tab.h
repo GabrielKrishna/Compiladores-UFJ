@@ -39,7 +39,7 @@
 # define YY_YY_NAMEKIAN_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
-# define YYDEBUG 0
+# define YYDEBUG 1
 #endif
 #if YYDEBUG
 extern int yydebug;
@@ -55,36 +55,40 @@ extern int yydebug;
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
     TOK_IDENT = 258,               /* TOK_IDENT  */
-    TOK_PRINT = 259,               /* TOK_PRINT  */
-    TOK_SCAN = 260,                /* TOK_SCAN  */
-    TOK_IF = 261,                  /* TOK_IF  */
-    TOK_ELSE = 262,                /* TOK_ELSE  */
-    TOK_WHILE = 263,               /* TOK_WHILE  */
-    TOK_BREAK = 264,               /* TOK_BREAK  */
-    TYPE_BOOL = 265,               /* TYPE_BOOL  */
-    TYPE_INT = 266,                /* TYPE_INT  */
-    TYPE_FLOAT = 267,              /* TYPE_FLOAT  */
-    TYPE_CHAR = 268,               /* TYPE_CHAR  */
-    TYPE_STRING = 269,             /* TYPE_STRING  */
-    TOK_AND = 270,                 /* TOK_AND  */
-    TOK_OR = 271,                  /* TOK_OR  */
-    TOK_LESSEQUAL = 272,           /* TOK_LESSEQUAL  */
-    TOK_GREATEREQUAL = 273,        /* TOK_GREATEREQUAL  */
-    TOK_EQUAL = 274,               /* TOK_EQUAL  */
-    TOK_DIFF = 275,                /* TOK_DIFF  */
-    TOK_TRUE = 276,                /* TOK_TRUE  */
-    TOK_FALSE = 277,               /* TOK_FALSE  */
-    TOK_INT = 278,                 /* TOK_INT  */
-    TOK_FLOAT = 279,               /* TOK_FLOAT  */
-    TOK_CHAR = 280,                /* TOK_CHAR  */
-    TOK_STRING = 281               /* TOK_STRING  */
+    TOK_INT = 259,                 /* TOK_INT  */
+    TOK_FLOAT = 260,               /* TOK_FLOAT  */
+    TOK_STRING = 261,              /* TOK_STRING  */
+    TOK_TRUE = 262,                /* TOK_TRUE  */
+    TOK_FALSE = 263,               /* TOK_FALSE  */
+    TOK_PRINT = 264,               /* TOK_PRINT  */
+    TOK_LOOP = 265,                /* TOK_LOOP  */
+    TOK_IF = 266,                  /* TOK_IF  */
+    TOK_ELSE = 267,                /* TOK_ELSE  */
+    TOK_AND = 268,                 /* TOK_AND  */
+    TOK_OR = 269,                  /* TOK_OR  */
+    TOK_EQUAL = 270,               /* TOK_EQUAL  */
+    TOK_DIFF = 271,                /* TOK_DIFF  */
+    TOK_GREATEREQUAL = 272,        /* TOK_GREATEREQUAL  */
+    TOK_LESSEQUAL = 273            /* TOK_LESSEQUAL  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+union YYSTYPE
+{
+#line 12 "namekian.y"
+ 
+    char *str;
+    int itg;
+    double flt;
+    Node *node;
+
+#line 89 "namekian.tab.h"
+
+};
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif

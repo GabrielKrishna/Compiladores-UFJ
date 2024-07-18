@@ -1,13 +1,23 @@
-//Definicao de variáveis, passando ou não valores
-paatoratemorinpe b = hotto;
-tamakuroru i;
-rutemiraru f = 3.5;
-peropuppo c;
-pimoposo s = "string";
+a = 10;
+b = 20;
+d = 0;
+c = (a - b) * d;
+c = (1 + 2 * (3 / 4));
+boleano = hotto;
 
-//Atribuicao de variaveis
-bool_variable = outoku;
-int_variable = 10;
-float_variable = 5.5;
-char_variable = 'a';
-string_variable = "nome";
+pumerettohero(boleano){
+    avishta a;
+}
+
+tetoraputo(1<a && 2>b){
+    avishta "Condição Verdadeira!";
+}
+
+pumerettohero(a<1 && b<10 && a!=b){
+    avishta "É válido";    
+}
+tsutenonipiro{
+    avishta "Não é válido";
+    a = a -1;
+    b = b -1;
+}

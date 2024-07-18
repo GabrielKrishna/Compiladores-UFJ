@@ -1,147 +1,180 @@
 %{
+#include "nodes.h"
+
+extern bool force_print_tree;
 int yyerror(const char *s);
 int yylex(void);
 %}
 
 %define parse.error verbose
+%define parse.trace
 
-%token TOK_IDENT TOK_PRINT TOK_SCAN TOK_IF TOK_ELSE TOK_WHILE TOK_BREAK
-%token TYPE_BOOL TYPE_INT TYPE_FLOAT TYPE_CHAR TYPE_STRING
-%token TOK_AND TOK_OR TOK_LESSEQUAL TOK_GREATEREQUAL TOK_EQUAL TOK_DIFF
-%token TOK_TRUE TOK_FALSE TOK_INT TOK_FLOAT TOK_CHAR TOK_STRING
+%union { 
+    char *str;
+    int itg;
+    double flt;
+    Node *node;
+}
 
-%start program
+%token TOK_IDENT TOK_INT TOK_FLOAT TOK_STRING TOK_TRUE TOK_FALSE
+
+%token TOK_PRINT TOK_LOOP TOK_IF TOK_ELSE
+
+%token TOK_AND TOK_OR TOK_EQUAL TOK_DIFF TOK_GREATEREQUAL TOK_LESSEQUAL
+
+%type<str> TOK_IDENT
+%type<itg> TOK_INT
+%type<flt> TOK_FLOAT
+%type<str> TOK_STRING
+
+%type<node> globals global logic_expresion logic_term logic_factor num_expr num_term num_factor unary
+
+%start program 
 
 %%
 
-program
-	: globals;
+program : globals {
+        Node *program = new Program();
+        program->append($globals);
 
-globals
-	: globals global
-	| global
-	;
+        // aqui vai a analise semantica
+        CheckVarDecl cvd;
+        cvd.check(program);
 
-global
-	: declaration
-	| atribuition
-	| print
-	| selection
-	| while
-	| break
-	;
+        if (errorcount > 0 )
+                cout << errorcount <<" error(s) found." << endl;
+        if (force_print_tree || errorcount == 0 )
+                printf_tree(program);
+                        
+        }
 
-declaration
-	: TYPE_BOOL TOK_IDENT '=' bool ';'
-	| TYPE_INT TOK_IDENT '=' TOK_INT ';'
-	| TYPE_FLOAT TOK_IDENT '=' TOK_FLOAT ';'
-	| TYPE_CHAR TOK_IDENT '=' TOK_CHAR ';'
-	| TYPE_STRING TOK_IDENT '=' TOK_STRING ';'
-	| simple_declaration
-	;
+globals : globals[gg] global {
+                $gg->append($global);
+                $$ = $gg;
+        }
+        | global {
+                Node *n = new Node();
+                n->append($global);
+                $$ = n;
+        }
 
-simple_declaration
-	: TYPE_BOOL TOK_IDENT ';'
-	| TYPE_INT TOK_IDENT ';'
-	| TYPE_FLOAT TOK_IDENT ';'
-	| TYPE_CHAR TOK_IDENT ';'
-	| TYPE_STRING TOK_IDENT ';'
-	;
+global : TOK_IDENT '=' num_expr ';' {
+                $$ = new Variable($TOK_IDENT,$num_expr);
+        }
+        | TOK_PRINT num_factor ';' {
+                $$ = new Print($num_factor);
+        }
+        | TOK_IF  '(' logic_expresion ')'  '{' globals '}' {
+                $$ = new Ifso($logic_expresion,$globals);
+        }
+        | TOK_IF  '(' logic_expresion ')'  '{' globals[g1] '}' TOK_ELSE '{' globals[g2] '}' {
+                $$ = new Ifnot($logic_expresion,$g1,$g2);
+        }
+        | TOK_LOOP '(' logic_expresion ')' '{' globals '}' {
+                $$ = new Loop($logic_expresion,$globals);
+        }
+        | error ';' {
+                $$ = new Node();
+        }
+        | error {
+                $$ = new Node();
+        }
 
-atribuition
-	: TOK_IDENT '=' value ';'
-	| TOK_IDENT '=' scan ';'
-	;
+logic_expresion : logic_expresion[le] TOK_OR  logic_term[lt] {
+                $$ = new BinaryOp($le,'|',$lt);
+        }
+        | logic_expresion[le] TOK_EQUAL logic_term[lt] {
+                $$ = new BinaryOp($le,'=',$lt);
+        }
+        | logic_expresion[le] '<' logic_term[lt] {
+                $$ = new BinaryOp($le,'<',$lt);
+        }
+        | logic_expresion[le] '>' logic_term[lt] {
+                $$ = new BinaryOp($le,'>',$lt);
+        }
+        | logic_expresion[le] TOK_LESSEQUAL logic_term[lt] {
+                $$ = new BinaryOp($le,'.',$lt);
+        }
+        | logic_expresion[le] TOK_GREATEREQUAL logic_term[lt] {
+                $$ = new BinaryOp($le,'^',$lt);
+        }
+        | logic_term  {
+                $$ = $logic_term;
+        }
 
-value
-	: TOK_STRING
-	| TOK_CHAR
-	| num_expression
-	;
+logic_term : logic_term[lt] TOK_AND logic_factor[lf] {
+                $$ = new BinaryOp($lt,'&',$lf);
+        }
+        | logic_term[lt] TOK_DIFF logic_factor[lf] {
+                $$ = new BinaryOp($lt,'!',$lf);
+        }
+        | logic_factor {
+                $$ = $logic_factor;
+        }
 
-scan
-	: TOK_SCAN '(' type ')'
-	;
+logic_factor : '[' logic_expresion ']' {
+                $$ = $logic_expresion;
+        }
+        | num_factor {
+                $$ = $num_factor;
+        }
+        | '!' '[' logic_expresion[le] ']' {
+                $$ = new Unary("!",$le);
+        }
 
-type
-	: TYPE_BOOL
-	| TYPE_INT
-	| TYPE_FLOAT
-	| TYPE_CHAR
-	| TYPE_STRING
-	;
+num_expr : num_expr[ee] '+' num_term {
+                $$ = new BinaryOp($ee,'+',$num_term);
+        }
+        | num_expr[ee] '-' num_term  {
+                $$ = new BinaryOp($ee,'-',$num_term);
+        }
+        | num_term {
+                $$ = $num_term;
+        }
 
-num_expression
-	: num_expression '+' num_term
-	| num_expression '-' num_term
-	| num_term
-	;
+num_term : num_term[tt] '*' num_factor {
+                $$ = new BinaryOp($tt,'*',$num_factor);
+        }
+        | num_term[tt] '/' num_factor {
+                $$ = new BinaryOp($tt,'/',$num_factor);
+        }
+        | num_term[tt] '%' num_factor{
+                $$ = new BinaryOp($tt,'%',$num_factor);
+        }       
+        | num_factor {
+                $$ = $num_factor;
+        }
 
-num_term
-	: num_term '*' num_factor
-	| num_term '/' num_factor
-	| num_factor
-	;
+num_factor : '(' num_expr ')'{
+                $$ = $num_expr;
+        }
+        | TOK_IDENT{
+                $$ = new Ident($TOK_IDENT);
+        }
+        | TOK_INT {
+                $$ = new Integer($TOK_INT);
+        }
+        | TOK_FLOAT {
+                $$ = new Float($TOK_FLOAT);
+        }
+        | TOK_STRING {
+                $$ = new String($TOK_STRING);
+        }
+        | unary {
+                $$ = $unary;
+        }
+        | TOK_FALSE {
+                $$ = new Bool(false);
+        }
+        | TOK_TRUE {
+                $$= new Bool(true);
+        }
 
-num_factor
-	: '(' num_expression ')'
-	| TOK_IDENT
-	| TOK_INT
-	| TOK_FLOAT
-	| unary
-	;
-
-unary
-	: '-' num_factor
-	;
-
-print
-	: TOK_PRINT '(' value ')' ';'
-	;
-
-selection
-	: TOK_IF '(' condition ')' '{' globals '}'
-	| TOK_IF '(' condition ')' '{' globals '}' TOK_ELSE '{' globals '}'
-	| TOK_IF '(' condition ')' '{' globals '}' TOK_ELSE selection
-	;
-
-condition
-	: num_factor relational_operator num_factor
-	| '(' condition logic_operator condition ')'
-	| num_expression
-	| bool
-	| not
-	;
-
-bool
-	: TOK_TRUE
-	| TOK_FALSE
-	;
-
-not
-	: '!''(' condition ')'
-	;
-
-relational_operator
-	: TOK_EQUAL
-	| TOK_DIFF
-	| '>'
-	| TOK_GREATEREQUAL
-	| '<'
-	| TOK_LESSEQUAL
-	;
-
-logic_operator
-	: TOK_AND
-	| TOK_OR
-	;
-
-while
-	: TOK_WHILE '(' condition ')''{' globals '}'
-	;
-
-break
-	: TOK_BREAK ';'
-	;
+unary : '-' num_factor {
+                $$ = new Unary("-",$num_factor);
+        }
+        | '+' num_factor {
+                $$ = new Unary("+",$num_factor);
+        }
 
 %%
